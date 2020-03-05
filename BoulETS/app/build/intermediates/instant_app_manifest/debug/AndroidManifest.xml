@@ -36,6 +36,14 @@
             android:name="com.example.boulets.ChoixMode"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.example.boulets.PartiePerso"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.example.boulets.DemarrerPartie"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>

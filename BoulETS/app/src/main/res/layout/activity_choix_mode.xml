@@ -18,10 +18,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Button_quickPlay"
+        android:id="@+id/partieRapide"
         android:layout_width="273dp"
         android:layout_height="63dp"
-        android:layout_marginStart="225dp"
+        android:layout_marginStart="226dp"
         android:layout_marginLeft="225dp"
         android:layout_marginTop="35dp"
         android:text="Partie Rapide"
@@ -35,12 +35,13 @@
         android:layout_marginStart="250dp"
         android:layout_marginLeft="250dp"
         android:max="5"
+        android:min="1"
         android:progress="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NbMots" />
 
     <Button
-        android:id="@+id/button_customGame"
+        android:id="@+id/partiePerso"
         android:layout_width="273dp"
         android:layout_height="56dp"
         android:layout_marginStart="225dp"
@@ -48,29 +49,30 @@
         android:layout_marginTop="38dp"
         android:text="Partie personnalisée"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Button_quickPlay" />
+        app:layout_constraintTop_toBottomOf="@+id/partieRapide" />
 
-    <EditText
+    <TextView
         android:id="@+id/nbMots"
-        android:layout_width="18dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="2"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/NbMots"
-        app:layout_constraintTop_toBottomOf="@+id/button_customGame" />
+        app:layout_constraintTop_toBottomOf="@+id/partiePerso" />
 
     <TextView
         android:id="@+id/NbMots"
-        android:layout_width="184dp"
-        android:layout_height="28dp"
+        android:layout_width="182dp"
+        android:layout_height="21dp"
         android:layout_marginStart="250dp"
         android:layout_marginLeft="250dp"
         android:layout_marginTop="20dp"
         android:text="Nombre de mots par joueur:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_customGame"
+        app:layout_constraintTop_toBottomOf="@+id/partiePerso"
         tools:text="Nombre de mots par joueur:" />
 
 
