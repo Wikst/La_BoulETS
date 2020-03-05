@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/pret_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Partie Personnalisée"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:text="Tout est prêt"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="198dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

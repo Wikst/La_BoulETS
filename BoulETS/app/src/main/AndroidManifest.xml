@@ -24,6 +24,12 @@
         <activity android:name=".ChoixMode"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".PartiePerso"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".DemarrerPartie"
+            android:screenOrientation="landscape">
+        </activity>
 
     </application>
 
