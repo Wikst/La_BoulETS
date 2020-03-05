@@ -1,15 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/pret_msg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tout est prêt"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="198dp" />
+        android:id="@+id/descriptionLibre"
+        android:layout_width="657dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Faites deviner le mot en le décrivant sans le mentionner directement."
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phase1" />
+
+    <TextView
+        android:id="@+id/phase1"
+        android:layout_width="312dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:gravity="center"
+        android:text="La phase 1 va débuter:"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pret" />
+
+    <TextView
+        android:id="@+id/joueur_approche"
+        android:layout_width="193dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:gravity="center"
+        android:text=", prépares-toi!"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/joueur_commence"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionLibre" />
+
+    <TextView
+        android:id="@+id/pret"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginLeft="252dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="Tout est prêt!"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/joueur_commence"
+        android:layout_width="236dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:gravity="center"
+        android:text="Mephisto (blue)"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionLibre" />
+
+    <Button
+        android:id="@+id/boutton_commencer"
+        android:layout_width="293dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginLeft="216dp"
+        android:layout_marginTop="256dp"
+        android:text="Allez, C'est parti !"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

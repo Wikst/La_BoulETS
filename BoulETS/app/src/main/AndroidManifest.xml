@@ -30,6 +30,9 @@
         <activity android:name=".DemarrerPartie"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".FenetreJeu"
+            android:screenOrientation="landscape">
+        </activity>
 
     </application>
 
