@@ -11,7 +11,7 @@
 9-->C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:5:5-27:19
+11-->C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:5:5-28:19
 12        android:allowBackup="true"
 12-->C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"

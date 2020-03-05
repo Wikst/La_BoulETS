@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,7 +10,68 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="32dp"
         android:text="Choix du Mode"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="49dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Button_quickPlay"
+        android:layout_width="273dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="35dp"
+        android:text="Partie Rapide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="228dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:max="5"
+        android:progress="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NbMots" />
+
+    <Button
+        android:id="@+id/button_customGame"
+        android:layout_width="273dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="38dp"
+        android:text="Partie personnalisée"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Button_quickPlay" />
+
+    <EditText
+        android:id="@+id/nbMots"
+        android:layout_width="18dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="2"
+        app:layout_constraintStart_toEndOf="@+id/NbMots"
+        app:layout_constraintTop_toBottomOf="@+id/button_customGame" />
+
+    <TextView
+        android:id="@+id/NbMots"
+        android:layout_width="184dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="20dp"
+        android:text="Nombre de mots par joueur:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_customGame"
+        tools:text="Nombre de mots par joueur:" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

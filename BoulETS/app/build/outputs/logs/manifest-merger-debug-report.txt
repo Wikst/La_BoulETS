@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\7805427e3445d32c2ff10acb510a061d\appcompat-1.0.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
@@ -35,25 +35,25 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Jordan\.gradle\c
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\54ec9a60a0f20829d9c5323f1ce0908c\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\0571339fd4cb74441b19561f6766bb98\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\0f91f258f9d0abaa0e56c019df47bd85\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
+INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:1-30:12
 		INJECTED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:5:5-27:19
+ADDED from C:\Users\Jordan\Desktop\Ecole\HIV_2020\GTI510\La_BoulETS\BoulETS\app\src\main\AndroidManifest.xml:5:5-28:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\01aba6feafaa9666a150e0ccab90f24c\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Jordan\.gradle\caches\transforms-2\files-2.1\75fe1a0d0ea641341446dfd6b8974e96\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
