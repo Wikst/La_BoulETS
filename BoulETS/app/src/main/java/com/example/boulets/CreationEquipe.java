@@ -30,11 +30,14 @@ public class CreationEquipe extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-                if(x1 < x2){
-                    Intent choixMode = new Intent(CreationEquipe.this, ChoixMode.class);
-                    startActivity(choixMode);
+                if(x1 > x2){
+                    Intent next = new Intent(CreationEquipe.this, ChoixMode.class);
+                    startActivity(next);
                 }
-                break;
+                if(x1 < x2){
+                    finish();
+            }
+            break;
         }
         return false;
     }

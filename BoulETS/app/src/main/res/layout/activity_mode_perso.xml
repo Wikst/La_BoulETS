@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choix du Mode"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="58dp" />
+        android:text="Partie Personnalisée"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="28dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
