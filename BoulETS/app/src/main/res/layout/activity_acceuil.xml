@@ -13,6 +13,7 @@
         android:text="La Boul'ETS" />
 
     <Button
+        android:id="@+id/buttonCommencer"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_below="@id/titre"

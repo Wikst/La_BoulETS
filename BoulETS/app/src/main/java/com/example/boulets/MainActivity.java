@@ -13,12 +13,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_acceuil);
 
         buttonCommencer = (Button) findViewById(R.id.buttonCommencer);
         buttonCommencer.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void OnClick(View v) {
+            public void onClick(View v) {
                 openCreationEquipe();
             }
         });

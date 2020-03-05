@@ -6,314 +6,278 @@
     android:layout_height="match_parent"
     tools:context=".CreationEquipe">
 
+    //element xml qui permet le swipe
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
+        android:id="@+id/addYellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="400dp"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="350dp"
         android:clickable="true"
         android:scaleX="0.6"
         android:scaleY="0.6"
         app:backgroundTint="#FFC107"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="277dp"
-        android:layout_height="423dp"
+        android:layout_width="243dp"
+        android:layout_height="376dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/red_banner_2"
-        tools:layout_editor_absoluteX="-25dp"
-        tools:layout_editor_absoluteY="56dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/red_banner_2" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:srcCompat="@drawable/blue_banner_2_png"
-        tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="56dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/yellow_banner"
-        tools:layout_editor_absoluteX="298dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yellow_banner" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/green_banner_2"
-        tools:layout_editor_absoluteX="458dp"
-        tools:layout_editor_absoluteY="56dp" />
+        android:layout_marginStart="458dp"
+        android:layout_marginLeft="458dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/green_banner_2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:clickable="true"
         android:scaleX="0.6"
         android:scaleY="0.6"
         app:backgroundTint="#2C6495"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditText3"
         app:srcCompat="@android:drawable/ic_menu_add"
-        tools:layout_editor_absoluteX="242dp" />
+        tools:layout_editor_absoluteX="250dp" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="64dp"
         android:clickable="true"
         android:scaleX="0.6"
         android:scaleY="0.6"
         app:backgroundTint="#D31919"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText5"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@android:drawable/ic_menu_add"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="355dp" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="89dp"
         android:layout_height="18dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="64dp"
         android:text=" Équipe Jaune"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteX="382dp"
+        tools:layout_editor_absoluteY="120dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText2"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="220dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText4"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginRight="79dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/textInputEditText2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText7" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="221dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText16"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="12dp"
         android:hint="Joueur 1"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="150dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText5"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="256dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
         android:hint="Joueur 2"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText16" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="185dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText15"
+        android:id="@+id/Vert_J4"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="544dp"
         android:layout_marginLeft="544dp"
+        android:layout_marginTop="113dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText12" />
+        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText3"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText2" />
+        tools:layout_editor_absoluteX="232dp"
+        tools:layout_editor_absoluteY="255dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText11"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="384dp"
-        android:layout_marginLeft="384dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText8" />
+        tools:layout_editor_absoluteX="384dp"
+        tools:layout_editor_absoluteY="255dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="95dp"
         android:layout_height="19dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="120dp"
         android:alpha="2"
         android:text=" Équipe Rouge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="120dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText8"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="384dp"
-        android:layout_marginLeft="384dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText10" />
+        tools:layout_editor_absoluteX="384dp"
+        tools:layout_editor_absoluteY="220dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/Vert_Team"
         android:layout_width="88dp"
         android:layout_height="20dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="122dp"
-        android:layout_marginEnd="99dp"
-        android:layout_marginRight="99dp"
         android:text=" Équipe Verte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="544dp"
+        tools:layout_editor_absoluteY="122dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText7"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
         android:hint="Joueur 2"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText6" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="186dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText9"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="384dp"
-        android:layout_marginLeft="384dp"
-        android:layout_marginTop="12dp"
         android:hint="Joueur 1"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        tools:layout_editor_absoluteX="384dp"
+        tools:layout_editor_absoluteY="150dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText6"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="12dp"
         android:alpha="2"
         android:hint="Joueur 1"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="151dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="87dp"
         android:layout_height="18dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="64dp"
         android:text=" Équipe Bleue"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="120dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText14"
+        android:id="@+id/Vert_J2"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="544dp"
-        android:layout_marginLeft="544dp"
         android:hint="Joueur 2"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText13" />
+        tools:layout_editor_absoluteX="544dp"
+        tools:layout_editor_absoluteY="185dp" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText12"
+        android:id="@+id/Vert-J3"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="544dp"
         android:layout_marginLeft="544dp"
+        android:layout_marginTop="78dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText14" />
+        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText13"
+        android:id="@+id/Vert_J1"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="544dp"
-        android:layout_marginLeft="544dp"
-        android:layout_marginTop="8dp"
         android:hint="Joueur 1"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        tools:layout_editor_absoluteX="544dp"
+        tools:layout_editor_absoluteY="150dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText10"
         android:layout_width="81dp"
         android:layout_height="35dp"
-        android:layout_marginStart="384dp"
-        android:layout_marginLeft="384dp"
         android:hint="Joueur 2"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText9" />
+        tools:layout_editor_absoluteX="384dp"
+        tools:layout_editor_absoluteY="185dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -341,15 +305,15 @@
         android:id="@+id/floatingActionButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="558dp"
+        android:layout_marginLeft="558dp"
+        android:layout_marginTop="350dp"
         android:clickable="true"
         android:scaleX="0.6"
         android:scaleY="0.6"
         app:backgroundTint="#268A2A"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton4"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
 
