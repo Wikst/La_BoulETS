@@ -20,7 +20,7 @@ public class FenetreJeu extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
 
-    private long timeCountInMilliSeconds = 1 * 3000;
+    private long timeCountInMilliSeconds = 1 * 3000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -30,7 +30,7 @@ public class FenetreJeu extends AppCompatActivity {
     private EditText editTextMinute;
     private TextView temps;
     private ImageView imageViewReset;
-    private ImageView imageViewStartStop;
+    //private ImageView imageViewStartStop;
     private CountDownTimer countDownTimer;
 
     @Override
@@ -120,7 +120,7 @@ public class FenetreJeu extends AppCompatActivity {
      */
     private void startStop() {
         if (timerStatus == TimerStatus.STOPPED) {
-
+            openPointage();
             // call to initialize the timer values
             setTimerValues();
             // call to initialize the progress bar values
@@ -134,10 +134,9 @@ public class FenetreJeu extends AppCompatActivity {
             // changing the timer status to started
             timerStatus = TimerStatus.STARTED;
             // call to start the count down timer
-            startCountDownTimer();
+            //startCountDownTimer();
 
         } else {
-
             // hiding the reset icon
             imageViewReset.setVisibility(View.GONE);
             // changing stop icon to start icon
@@ -147,8 +146,6 @@ public class FenetreJeu extends AppCompatActivity {
             // changing the timer status to stopped
             timerStatus = TimerStatus.STOPPED;
             stopCountDownTimer();
-            
-            openPointage();
 
         }
     }
@@ -178,16 +175,13 @@ public class FenetreJeu extends AppCompatActivity {
         countDownTimer = new CountDownTimer(timeCountInMilliSeconds, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
                 temps.setText(hmsTimeFormatter(millisUntilFinished));
-
                 progressBarCircle.setProgress((int) (millisUntilFinished / 1000));
-
             }
 
             @Override
             public void onFinish() {
-
+                openPointage();
                temps.setText(hmsTimeFormatter(timeCountInMilliSeconds));
                 // call to initialize the progress bar values
                 setProgressBarValues();
@@ -199,10 +193,7 @@ public class FenetreJeu extends AppCompatActivity {
                 editTextMinute.setEnabled(true);
                 // changing the timer status to stopped
                 timerStatus = TimerStatus.STOPPED;
-
-                openPointage();
             }
-
         }.start();
         countDownTimer.start();
     }
@@ -238,26 +229,14 @@ public class FenetreJeu extends AppCompatActivity {
      * @return HH:mm:ss time formatted string
      */
     private String hmsTimeFormatter(long milliSeconds) {
-
-        //String hms = String.format("%02d:%02d:%02d",
-        String hms = String.format("%02d",
-                //TimeUnit.MILLISECONDS.toHours(milliSeconds),
-                TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
-                //TimeUnit.MILLISECONDS.toMillis(milliSeconds) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(milliSeconds)));
-
         //Backup
+        //String hms = String.format("%02d:%02d:%02d",
         //TimeUnit.MILLISECONDS.toHours(milliSeconds),
         //TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
 
+        String hms = String.format("%02d",
+                TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
+                //TimeUnit.MILLISECONDS.toMillis(milliSeconds) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(milliSeconds)));
         return hms;
-
-
-
-
     }
-
-
-
-
-
 }
