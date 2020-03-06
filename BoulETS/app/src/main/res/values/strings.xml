@@ -3,4 +3,5 @@
     <string name="commencer">Start</string>
     <string name="done" />
     <string name="reminder" />
+    <string name="message_minutes" />
 </resources>

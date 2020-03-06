@@ -33,6 +33,10 @@
         <activity android:name=".FenetreJeu"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".Pointage"
+            android:screenOrientation="landscape">
+        </activity>
+
 
     </application>
 

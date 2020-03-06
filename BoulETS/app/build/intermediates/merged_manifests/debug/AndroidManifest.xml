@@ -47,6 +47,10 @@
             android:name="com.example.boulets.FenetreJeu"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.example.boulets.Pointage"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>

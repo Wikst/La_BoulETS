@@ -14,7 +14,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
         android:gravity="center"
-        android:text="Faites deviner le mot en le décrivant sans le mentionner directement."
+        android:text="Faites deviner le mot en le décrivant, mais sans le mentionner directement."
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phase1" />
@@ -63,7 +63,7 @@
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
         android:gravity="center"
-        android:text="Mephisto (blue)"
+        android:text="Mephisto (bleu)"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionLibre" />
