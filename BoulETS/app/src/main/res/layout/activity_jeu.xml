@@ -34,13 +34,13 @@
 
     <TextView
         android:id="@+id/temps"
-        android:layout_width="283dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
+        android:layout_width="98dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="00:00:30"
+        android:text="30"
         android:textSize="60sp"
         app:layout_constraintStart_toEndOf="@+id/chrono"
         app:layout_constraintTop_toBottomOf="@+id/titreJeu" />

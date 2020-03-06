@@ -1,5 +1,6 @@
 package com.example.boulets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -19,7 +20,7 @@ public class FenetreJeu extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
 
-    private long timeCountInMilliSeconds = 1 * 60000;
+    private long timeCountInMilliSeconds = 1 * 3000;
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -41,6 +42,8 @@ public class FenetreJeu extends AppCompatActivity {
         initViews();
         // method call to initialize the listeners
                              //initListeners();
+        startCountDownTimer();
+
         }
 
     //Pour le swipe
@@ -74,7 +77,7 @@ public class FenetreJeu extends AppCompatActivity {
     private void initViews() {
         progressBarCircle = (ProgressBar) findViewById(R.id.chrono);
         //editTextMinute = (EditText) findViewById(R.id.editTextMinute);
-        temps = (TextView) findViewById(R.id.temps);
+        temps = findViewById(R.id.temps);
         //imageViewReset = (ImageView) findViewById(R.id.imageViewReset);
         //imageViewStartStop = (ImageView) findViewById(R.id.imageViewStartStop);
     }
@@ -123,7 +126,7 @@ public class FenetreJeu extends AppCompatActivity {
             // call to initialize the progress bar values
             setProgressBarValues();
             // showing the reset icon
-            imageViewReset.setVisibility(View.VISIBLE);
+                       //imageViewReset.setVisibility(View.VISIBLE);
             // changing play icon to stop icon
                     //imageViewStartStop.setImageResource(R.drawable.icon_stop);
             // making edit text not editable
@@ -144,6 +147,8 @@ public class FenetreJeu extends AppCompatActivity {
             // changing the timer status to stopped
             timerStatus = TimerStatus.STOPPED;
             stopCountDownTimer();
+            
+            openPointage();
 
         }
     }
@@ -152,16 +157,17 @@ public class FenetreJeu extends AppCompatActivity {
      * method to initialize the values for count down timer
      */
     private void setTimerValues() {
-        int time = 0;
-        if (!editTextMinute.getText().toString().isEmpty()) {
+        int time = 1;
+        if (!temps.getText().toString().isEmpty()) {
             // fetching value from edit text and type cast to integer
-            time = Integer.parseInt(editTextMinute.getText().toString().trim());
+            time = Integer.parseInt(temps.getText().toString().trim());
         } else {
             // toast message to fill edit text
             Toast.makeText(getApplicationContext(), getString(R.string.message_minutes), Toast.LENGTH_LONG).show();
         }
         // assigning values after converting to milliseconds
-        timeCountInMilliSeconds = time * 60 * 1000;
+        //timeCountInMilliSeconds = time * 60 * 1000;
+        timeCountInMilliSeconds = time * 1000;
     }
 
     /**
@@ -186,17 +192,25 @@ public class FenetreJeu extends AppCompatActivity {
                 // call to initialize the progress bar values
                 setProgressBarValues();
                 // hiding the reset icon
-                imageViewReset.setVisibility(View.GONE);
+                          //imageViewReset.setVisibility(View.GONE);
                 // changing stop icon to start icon
                          //imageViewStartStop.setImageResource(R.drawable.icon_start);
                 // making edit text editable
                 editTextMinute.setEnabled(true);
                 // changing the timer status to stopped
                 timerStatus = TimerStatus.STOPPED;
+
+                openPointage();
             }
 
         }.start();
         countDownTimer.start();
+    }
+
+    //Redirection vers le score de la partie une fois le timer fini
+    private void openPointage() {
+        Intent intentPointage = new Intent(this, Pointage.class);
+        startActivity(intentPointage);
     }
 
     /**
@@ -204,6 +218,7 @@ public class FenetreJeu extends AppCompatActivity {
      */
     private void stopCountDownTimer() {
         countDownTimer.cancel();
+        openPointage();
     }
 
     /**
@@ -224,12 +239,19 @@ public class FenetreJeu extends AppCompatActivity {
      */
     private String hmsTimeFormatter(long milliSeconds) {
 
-        String hms = String.format("%02d:%02d:%02d",
-                TimeUnit.MILLISECONDS.toHours(milliSeconds),
-                TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
+        //String hms = String.format("%02d:%02d:%02d",
+        String hms = String.format("%02d",
+                //TimeUnit.MILLISECONDS.toHours(milliSeconds),
                 TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
+                //TimeUnit.MILLISECONDS.toMillis(milliSeconds) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(milliSeconds)));
+
+        //Backup
+        //TimeUnit.MILLISECONDS.toHours(milliSeconds),
+        //TimeUnit.MILLISECONDS.toMinutes(milliSeconds) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milliSeconds)),
 
         return hms;
+
+
 
 
     }
