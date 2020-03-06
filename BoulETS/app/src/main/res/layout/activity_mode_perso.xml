@@ -1,15 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titre_perso"
+        android:layout_width="280dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginLeft="224dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Partie Personnalisée"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/msg_entrer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Partie Personnalisée"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text=", entrez vos mots :"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/joueur_name"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <TextView
+        android:id="@+id/joueur_name"
+        android:layout_width="162dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Mephisto (bleu)"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <EditText
+        android:id="@+id/mot1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="91dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <EditText
+        android:id="@+id/mot4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mot1" />
+
+    <EditText
+        android:id="@+id/mot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
+        android:layout_marginTop="91dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <EditText
+        android:id="@+id/mot5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mot2" />
+
+    <EditText
+        android:id="@+id/mot3"
+        android:layout_width="173dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="492dp"
+        android:layout_marginLeft="492dp"
+        android:layout_marginTop="94dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <Button
+        android:id="@+id/bouton_valider"
+        android:layout_width="158dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="500dp"
+        android:layout_marginLeft="500dp"
+        android:layout_marginTop="204dp"
+        android:text="Valider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
 </androidx.constraintlayout.widget.ConstraintLayout>
