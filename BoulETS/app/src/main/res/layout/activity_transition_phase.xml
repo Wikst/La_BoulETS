@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="212dp"
+        android:layout_marginLeft="212dp"
+        android:layout_marginTop="5dp"
+        android:text="Changement de phase"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/phase2"
+        android:layout_width="116dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="59dp"
+        android:gravity="center"
+        android:text="Phase 2"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="@+id/titre"
+        tools:layout_editor_absoluteX="307dp" />
+
+    <TextView
+        android:id="@+id/phase2_explication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Faites deviner le mot cible à l'aide d'un seul mot"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phase2" />
+
+    <TextView
+        android:id="@+id/phase3"
+        android:layout_width="116dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="59dp"
+        android:gravity="center"
+        android:text="Phase 3"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@+id/titre"
+        tools:layout_editor_absoluteX="307dp" />
+
+    <TextView
+        android:id="@+id/phase3_explication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginLeft="152dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Faites deviner le mot cible en le mimant"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phase2" />
+
+    <TextView
+        android:id="@+id/next_joueur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="224dp"
+        android:layout_marginLeft="224dp"
+        android:layout_marginTop="192dp"
+        android:gravity="center"
+        android:text="Yennefer"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/prepare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="192dp"
+        android:gravity="center"
+        android:text=", prépares-toi"
+        android:textSize="28sp"
+        app:layout_constraintStart_toEndOf="@+id/next_joueur"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <Button
+        android:id="@+id/button_suivant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="256dp"
+        android:text="Je suis prêt(e)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+</androidx.constraintlayout.widget.ConstraintLayout>

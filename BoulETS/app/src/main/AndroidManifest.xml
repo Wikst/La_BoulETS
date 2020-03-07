@@ -36,6 +36,9 @@
         <activity android:name=".Pointage"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".TransitionPhase"
+            android:screenOrientation="landscape">
+        </activity>
 
 
     </application>

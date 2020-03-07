@@ -52,6 +52,10 @@
             android:name="com.example.boulets.Pointage"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.example.boulets.TransitionPhase"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>
