@@ -29,7 +29,8 @@ public class TransitionPhase extends AppCompatActivity {
 
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
-        Intent intentDemarrer = new Intent(this, FenetreJeu.class);
+        //Intent intentDemarrer = new Intent(this, FenetreJeu.class);
+        Intent intentDemarrer = new Intent(this, FinJeu.class);
         startActivity(intentDemarrer);
     }
 

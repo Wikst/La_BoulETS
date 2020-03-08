@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titre_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:layout_marginLeft="272dp"
+        android:layout_marginTop="5dp"
+        android:text="Pointage final"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bouton_retour_accueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="284dp"
+        android:layout_marginLeft="284dp"
+        android:layout_marginTop="220dp"
+        android:text="Retour à l'accueil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_score" />
+
+    <TextView
+        android:id="@+id/position1er"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="1er"
+        android:textSize="50sp"
+        app:layout_constraintStart_toEndOf="@+id/crown"
+        app:layout_constraintTop_toBottomOf="@+id/titre_score" />
+
+    <TextView
+        android:id="@+id/Equipe_1er"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Rouge"
+        android:textSize="50sp"
+        app:layout_constraintStart_toEndOf="@+id/position1er"
+        app:layout_constraintTop_toBottomOf="@+id/titre_score" />
+
+    <ImageView
+        android:id="@+id/crown"
+        android:layout_width="108dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/crown" />
+
+    <TextView
+        android:id="@+id/position2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="284dp"
+        android:layout_marginLeft="284dp"
+        android:gravity="center"
+        android:text="2e"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/position1er" />
+
+    <TextView
+        android:id="@+id/Equipe_2e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center"
+        android:text="Bleu"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/position2"
+        app:layout_constraintTop_toBottomOf="@+id/Equipe_1er" />
+
+    <TextView
+        android:id="@+id/Equipe_3e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center"
+        android:text="Jaune"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/position3"
+        app:layout_constraintTop_toBottomOf="@+id/Equipe_2e" />
+
+    <TextView
+        android:id="@+id/position3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="296dp"
+        android:layout_marginLeft="296dp"
+        android:gravity="center"
+        android:text="3e"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/position2" />
+
+    <TextView
+        android:id="@+id/position4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="308dp"
+        android:layout_marginLeft="308dp"
+        android:gravity="center"
+        android:text="4e"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/position3" />
+
+    <TextView
+        android:id="@+id/Equipe_4e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:gravity="center"
+        android:text="Vert"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/position4"
+        app:layout_constraintTop_toBottomOf="@+id/Equipe_3e" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

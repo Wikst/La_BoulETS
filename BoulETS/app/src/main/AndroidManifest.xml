@@ -39,6 +39,12 @@
         <activity android:name=".TransitionPhase"
             android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".FinJeu"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity android:name=".Score"
+            android:screenOrientation="landscape">
+        </activity>
 
 
     </application>
