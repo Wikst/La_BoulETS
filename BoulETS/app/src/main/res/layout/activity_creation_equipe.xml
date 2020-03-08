@@ -206,7 +206,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rouge_J3" />
 
     <TextView
-        android:id="@+id/Bleu_Team"
+        android:id="@+id/bleu_Team"
         android:layout_width="87dp"
         android:layout_height="18dp"
         android:layout_marginStart="229dp"
@@ -218,7 +218,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Bleu_J1"
+        android:id="@+id/bleu_J1"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="228dp"
@@ -227,10 +227,10 @@
         android:hint="Joueur 1"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bleu_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/bleu_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Bleu_J2"
+        android:id="@+id/bleu_J2"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="228dp"
@@ -239,10 +239,10 @@
         android:hint="Joueur 2"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bleu_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/bleu_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Bleu_J3"
+        android:id="@+id/bleu_J3"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="228dp"
@@ -250,11 +250,12 @@
         android:layout_marginTop="77dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bleu_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/bleu_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Bleu_J4"
+        android:id="@+id/bleu_J4"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="228dp"
@@ -262,11 +263,12 @@
         android:layout_marginTop="112dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bleu_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/bleu_Team" />
 
     <TextView
-        android:id="@+id/Jaune_Team"
+        android:id="@+id/jaune_Team"
         android:layout_width="89dp"
         android:layout_height="18dp"
         android:layout_marginStart="388dp"
@@ -274,11 +276,12 @@
         android:layout_marginTop="95dp"
         android:text=" Équipe Jaune"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Jaune_J1"
+        android:id="@+id/jaune_J1"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="388dp"
@@ -286,44 +289,48 @@
         android:layout_marginTop="8dp"
         android:hint="Joueur 1"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Jaune_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/jaune_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Jaune_J2"
+        android:id="@+id/jaune_J2"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="388dp"
         android:layout_marginLeft="388dp"
         android:hint="Joueur 2"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Jaune_J1" />
+        app:layout_constraintTop_toBottomOf="@+id/jaune_J1" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Jaune_J3"
+        android:id="@+id/jaune_J3"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="388dp"
         android:layout_marginLeft="388dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Jaune_J2" />
+        app:layout_constraintTop_toBottomOf="@+id/jaune_J2" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Jaune_J4"
+        android:id="@+id/jaune_J4"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="388dp"
         android:layout_marginLeft="388dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Jaune_J3" />
+        app:layout_constraintTop_toBottomOf="@+id/jaune_J3" />
 
     <TextView
-        android:id="@+id/Vert_Team"
+        android:id="@+id/vert_Team"
         android:layout_width="88dp"
         android:layout_height="20dp"
         android:layout_marginStart="547dp"
@@ -336,7 +343,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Vert_J1"
+        android:id="@+id/vert_J1"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="547dp"
@@ -345,10 +352,10 @@
         android:hint="Joueur 1"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/vert_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Vert_J2"
+        android:id="@+id/vert_J2"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="547dp"
@@ -357,10 +364,10 @@
         android:hint="Joueur 2"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/vert_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Vert-J3"
+        android:id="@+id/vert_J3"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="547dp"
@@ -368,11 +375,12 @@
         android:layout_marginTop="78dp"
         android:hint="Joueur 3"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/vert_Team" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/Vert_J4"
+        android:id="@+id/vert_J4"
         android:layout_width="81dp"
         android:layout_height="35dp"
         android:layout_marginStart="547dp"
@@ -380,7 +388,8 @@
         android:layout_marginTop="113dp"
         android:hint="Joueur 4"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Vert_Team" />
+        app:layout_constraintTop_toBottomOf="@+id/vert_Team" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
