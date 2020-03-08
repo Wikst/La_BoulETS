@@ -80,7 +80,7 @@ public class ChoixMode extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-                if (x1 < x2) {
+                if (x1 < x2 && x2-x1 > 300) {
                     finish();
                 }
                 break;

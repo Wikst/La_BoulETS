@@ -47,7 +47,7 @@ public class PartiePerso extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-                if (x1 < x2) {
+                if (x1 < x2 && x2-x1 > 300) {
                     //INTÉRESSANT D'AJOUTER UNE CONFIRMATION (pour éviter swipe accidentel)+ Retour à la dernière personne, pas à la fenêtre d'avant
                     finish();
                 }
