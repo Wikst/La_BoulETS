@@ -239,4 +239,8 @@ public class FenetreJeu extends AppCompatActivity {
                 //TimeUnit.MILLISECONDS.toMillis(milliSeconds) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(milliSeconds)));
         return hms;
     }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
 }

@@ -33,4 +33,8 @@ public class FinJeu extends AppCompatActivity {
         Intent intentFinal = new Intent(this, Score.class);
         startActivity(intentFinal);
     }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
 }

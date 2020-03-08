@@ -41,4 +41,8 @@ public class Pointage extends AppCompatActivity {
             //Ou utiliser la méthode finish(). Cela demanderait de reset l'instance précédente par contre. À voir
             //}
         }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
     }

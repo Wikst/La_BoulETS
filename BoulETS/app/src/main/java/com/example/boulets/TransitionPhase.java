@@ -34,4 +34,8 @@ public class TransitionPhase extends AppCompatActivity {
         startActivity(intentDemarrer);
     }
 
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
+
 }

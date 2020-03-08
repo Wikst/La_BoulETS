@@ -33,4 +33,8 @@ public class Score extends AppCompatActivity {
         Intent intentAccueil = new Intent(this, MainActivity.class);
         startActivity(intentAccueil);
     }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
 }
