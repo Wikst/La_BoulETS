@@ -14,8 +14,159 @@
         android:layout_marginLeft="304dp"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="Pointage"
+        android:text="Phase 1"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/rouge_banner"
+        android:layout_width="119dp"
+        android:layout_height="239dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:srcCompat="@drawable/red_banner_2" />
+
+    <TextView
+        android:id="@+id/motsRestants"
+        android:layout_width="97dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="258dp"
+        android:text="mots restants"
+        app:layout_constraintStart_toEndOf="@+id/nbMotsRestants"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        android:layout_marginLeft="173dp"
+        android:layout_marginTop="258dp"
+        android:text="Joueur suivant :"
+        app:layout_constraintStart_toEndOf="@+id/motsRestants"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/nbMotsRestants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginLeft="124dp"
+        android:layout_marginTop="248dp"
+        android:gravity="center"
+        android:text="8"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/nom_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="244dp"
+        android:text="Cirilla"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/next"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <Button
+        android:id="@+id/bouton_cestParti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="292dp"
+        android:layout_marginLeft="292dp"
+        android:layout_marginTop="240dp"
+        android:text="C'est parti !"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <ImageView
+        android:id="@+id/bleu_banner"
+        android:layout_width="120dp"
+        android:layout_height="243dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        app:layout_constraintStart_toEndOf="@+id/rouge_banner"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:srcCompat="@drawable/blue_banner_2_png" />
+
+    <ImageView
+        android:id="@+id/jaune_banner"
+        android:layout_width="120dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        app:layout_constraintStart_toEndOf="@+id/bleu_banner"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:srcCompat="@drawable/yellow_banner" />
+
+    <ImageView
+        android:id="@+id/vert_banner"
+        android:layout_width="124dp"
+        android:layout_height="248dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        app:layout_constraintStart_toEndOf="@+id/jaune_banner"
+        app:layout_constraintTop_toBottomOf="@+id/titre"
+        app:srcCompat="@drawable/green_banner_2" />
+
+    <TextView
+        android:id="@+id/rouge_score"
+        android:layout_width="62dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="73dp"
+        android:gravity="center"
+        android:text="6"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/bleu_score"
+        android:layout_width="62dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="73dp"
+        android:gravity="center"
+        android:text="8"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/rouge_score"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/jaune_score"
+        android:layout_width="62dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/bleu_score"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
+    <TextView
+        android:id="@+id/vert_score"
+        android:layout_width="62dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:text="8"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/jaune_score"
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

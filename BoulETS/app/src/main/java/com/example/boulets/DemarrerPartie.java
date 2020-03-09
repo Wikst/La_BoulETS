@@ -51,4 +51,8 @@ public class DemarrerPartie extends AppCompatActivity {
         }
         return false;
     }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
 }

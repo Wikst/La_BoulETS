@@ -33,7 +33,7 @@ public class PartiePerso extends AppCompatActivity {
 
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
-        Intent intentDemarrer = new Intent(this, FenetreJeu.class);
+        Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
         startActivity(intentDemarrer);
     }
 
@@ -47,7 +47,7 @@ public class PartiePerso extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
-                if (x1 < x2) {
+                if (x1 < x2 && x2-x1 > 300) {
                     //INTÉRESSANT D'AJOUTER UNE CONFIRMATION (pour éviter swipe accidentel)+ Retour à la dernière personne, pas à la fenêtre d'avant
                     finish();
                 }
@@ -55,4 +55,8 @@ public class PartiePerso extends AppCompatActivity {
         }
         return false;
     }
+
+    //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
+    @Override
+    public void onBackPressed() {}
 }
