@@ -48,7 +48,10 @@ public class PartiePerso extends AppCompatActivity {
 =======
 
         //int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
+<<<<<<< HEAD
 >>>>>>> Version stable
+=======
+>>>>>>> master
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
