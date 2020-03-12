@@ -2,9 +2,12 @@ package com.example.boulets;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,12 +15,25 @@ public class PartiePerso extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
     private Button valider;
+    private EditText mot1;
+    private EditText mot2;
+    private EditText mot3;
+    private EditText mot4;
+    private EditText mot5;
     //Ajouter un compteur (la fenètre se répètent par le nombre de joueurs sélectionner au début)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode_perso);
+
+        mot1 = (EditText) findViewById(R.id.mot1);
+        mot2 = (EditText) findViewById(R.id.mot2);
+        mot3 = (EditText) findViewById(R.id.mot3);
+        mot4 = (EditText) findViewById(R.id.mot4);
+        mot5 = (EditText) findViewById(R.id.mot5);
+
+        int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -29,12 +45,45 @@ public class PartiePerso extends AppCompatActivity {
             }
         });
 
+        //Récupère le nombre de mots choisi dans la fenêtre ChoixMode
+        String nbMots = getIntent().getStringExtra("nbMotsChoixMode");
+        adapteNbMots(nbMots);
         }
 
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
         Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
         startActivity(intentDemarrer);
+    }
+
+    private void adapteNbMots(String nbMots){
+        switch(nbMots){
+            case "1":
+                mot1.setVisibility(View.VISIBLE);
+                break;
+            case "2":
+                mot1.setVisibility(View.VISIBLE);
+                mot2.setVisibility(View.VISIBLE);
+                break;
+            case "3":
+                mot1.setVisibility(View.VISIBLE);
+                mot2.setVisibility(View.VISIBLE);
+                mot3.setVisibility(View.VISIBLE);
+                break;
+            case"4":
+                mot1.setVisibility(View.VISIBLE);
+                mot2.setVisibility(View.VISIBLE);
+                mot3.setVisibility(View.VISIBLE);
+                mot4.setVisibility(View.VISIBLE);
+                break;
+            case"5":
+                mot1.setVisibility(View.VISIBLE);
+                mot2.setVisibility(View.VISIBLE);
+                mot3.setVisibility(View.VISIBLE);
+                mot4.setVisibility(View.VISIBLE);
+                mot5.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     //Pour le swipe
