@@ -36,7 +36,7 @@ public class PartiePerso extends AppCompatActivity {
         mot3 = (EditText) findViewById(R.id.mot3);
         mot4 = (EditText) findViewById(R.id.mot4);
         mot5 = (EditText) findViewById(R.id.mot5);
-<<<<<<< Jordan
+
         erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
         
         //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans la fenêtre précédente (ChoixMode)
@@ -45,13 +45,6 @@ public class PartiePerso extends AppCompatActivity {
         listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
         nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
         adapteNbMots(nbMots);
-=======
-
-        //int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
-<<<<<<< HEAD
->>>>>>> Version stable
-=======
->>>>>>> master
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
