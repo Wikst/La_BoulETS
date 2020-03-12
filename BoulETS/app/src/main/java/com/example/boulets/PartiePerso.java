@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,8 +21,10 @@ public class PartiePerso extends AppCompatActivity {
     private EditText mot3;
     private EditText mot4;
     private EditText mot5;
+    private TextView erreur;
     private String compteurNbJoueurs;
     private String[] listeJoueurs = new String[16];
+    private String nbMots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,13 @@ public class PartiePerso extends AppCompatActivity {
         mot3 = (EditText) findViewById(R.id.mot3);
         mot4 = (EditText) findViewById(R.id.mot4);
         mot5 = (EditText) findViewById(R.id.mot5);
+        erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
         
         //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans la fenêtre précédente (ChoixMode)
         Bundle extras = getIntent().getExtras();
         compteurNbJoueurs = extras.getString("NB_JOUEURS");
         listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
-        String nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+        nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
         adapteNbMots(nbMots);
 
         //Transition vers les autres vues à l'aide des boutons
@@ -54,8 +58,55 @@ public class PartiePerso extends AppCompatActivity {
 
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
-        Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
-        startActivity(intentDemarrer);
+        if(verificationMotsRemplis()) {
+            Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
+            startActivity(intentDemarrer);
+        }
+    }
+
+    //Vérifie qu'aucune case mot n'est laissé vide
+    private boolean verificationMotsRemplis() {
+        switch (nbMots) {
+            case "1":
+                if (mot1.getText().toString().matches("")) {
+                    erreur.setVisibility(View.VISIBLE);
+                    return false;
+                }
+                break;
+
+            case "2":
+                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("")) {
+                    erreur.setVisibility(View.VISIBLE);
+                    return false;
+                }
+                break;
+
+            case "3":
+                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
+                        mot3.getText().toString().matches("")) {
+                    erreur.setVisibility(View.VISIBLE);
+                    return false;
+                }
+                break;
+
+            case "4":
+                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
+                        mot3.getText().toString().matches("") || mot4.getText().toString().matches("")) {
+                    erreur.setVisibility(View.VISIBLE);
+                    return false;
+                }
+                break;
+
+            case "5":
+                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
+                        mot3.getText().toString().matches("") || mot4.getText().toString().matches("") ||
+                        mot5.getText().toString().matches("")) {
+                    erreur.setVisibility(View.VISIBLE);
+                    return false;
+                }
+                break;
+        }
+        return true;
     }
 
     private void adapteNbMots(String nbMots){

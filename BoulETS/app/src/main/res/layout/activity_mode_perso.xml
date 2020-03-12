@@ -123,4 +123,17 @@
         android:text="Valider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titre_perso" />
+
+    <TextView
+        android:id="@+id/msg_erreur_MotsPasRempli"
+        android:layout_width="215dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Veuillez inscrire un mot dans chaque case avant de poursuivre."
+        android:textColor="#FF0000"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
