@@ -2,6 +2,8 @@ package com.example.boulets;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ public class ChoixMode extends AppCompatActivity {
     private SeekBar seekBar;
     private Button partieRapide;
     private Button partiePerso;
+    private String compteurMots = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class ChoixMode extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 nbMots.setText("" + progress);
+                compteurMots = nbMots.getText().toString();
+                //Log.d("tagMots", "Nombre de mots choisi: " + compteurMots);
             }
 
             @Override
@@ -61,6 +66,7 @@ public class ChoixMode extends AppCompatActivity {
     //Redirection vers la page Partie personnalisée
     private void openPerso() {
         Intent intentPerso = new Intent(this, PartiePerso.class);
+        intentPerso.putExtra("nbMotsChoixMode", compteurMots);
         startActivity(intentPerso);
     }
 
