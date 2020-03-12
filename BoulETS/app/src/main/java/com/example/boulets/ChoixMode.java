@@ -20,6 +20,7 @@ public class ChoixMode extends AppCompatActivity {
     private Button partieRapide;
     private Button partiePerso;
     private String compteurMots = "2";
+    private String[] listeJoueurs = new String[16];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,13 @@ public class ChoixMode extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
 
+        //Conserve l'information de l'activité précédente(CreationEquipe)
+        Bundle extras = getIntent().getExtras();
+        final String compteurNbJoueurs = extras.getString("NB_JOUEURS");
+        listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
+
+
+
         //Transition vers les autres vues à l'aide des boutons
         partieRapide = (Button) findViewById(R.id.partieRapide);
         partieRapide.setOnClickListener(new View.OnClickListener() {
@@ -58,15 +66,17 @@ public class ChoixMode extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openPerso();
+                openPerso(compteurNbJoueurs,listeJoueurs);
             }
         });
     }
 
     //Redirection vers la page Partie personnalisée
-    private void openPerso() {
+    private void openPerso(String compteurNbJoueurs, String[] listeJoueurs) {
         Intent intentPerso = new Intent(this, PartiePerso.class);
-        intentPerso.putExtra("nbMotsChoixMode", compteurMots);
+        intentPerso.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+        intentPerso.putExtra("NB_JOUEURS", compteurNbJoueurs);
+        intentPerso.putExtra("LISTE_JOUEURS",listeJoueurs);
         startActivity(intentPerso);
     }
 

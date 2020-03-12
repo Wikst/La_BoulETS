@@ -20,7 +20,8 @@ public class PartiePerso extends AppCompatActivity {
     private EditText mot3;
     private EditText mot4;
     private EditText mot5;
-    //Ajouter un compteur (la fenètre se répètent par le nombre de joueurs sélectionner au début)
+    private String compteurNbJoueurs;
+    private String[] listeJoueurs = new String[16];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,13 @@ public class PartiePerso extends AppCompatActivity {
         mot3 = (EditText) findViewById(R.id.mot3);
         mot4 = (EditText) findViewById(R.id.mot4);
         mot5 = (EditText) findViewById(R.id.mot5);
-
-        int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
+        
+        //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans la fenêtre précédente (ChoixMode)
+        Bundle extras = getIntent().getExtras();
+        compteurNbJoueurs = extras.getString("NB_JOUEURS");
+        listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
+        String nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+        adapteNbMots(nbMots);
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -44,10 +50,6 @@ public class PartiePerso extends AppCompatActivity {
                 openFenetreJeu();
             }
         });
-
-        //Récupère le nombre de mots choisi dans la fenêtre ChoixMode
-        String nbMots = getIntent().getStringExtra("nbMotsChoixMode");
-        adapteNbMots(nbMots);
         }
 
     //Redirection vers la page de jeu

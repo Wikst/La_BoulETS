@@ -49,7 +49,7 @@ public class CreationEquipe extends AppCompatActivity {
     private boolean joueurUniqueBleu = false;
     private boolean joueurUniqueJaune = false;
     private boolean joueurUniqueVert = false;
-    private int compteurNbJoueurs;
+    public int compteurNbJoueurs;
     public String[] listeJoueurs = new String[16];
     float x1, x2, y1, y2;
 
@@ -171,8 +171,8 @@ public class CreationEquipe extends AppCompatActivity {
                     y2 = touchevent.getY();
                     if (x1 > x2 && x1 - x2 > 300) {
                         verificationJoueur();
-                        verificationEquipe();
                         compteurNbJoueurs = compteNbJoueurs();
+                        verificationEquipe(String.valueOf(compteurNbJoueurs));
                     }
                     if (x1 < x2 && x2 - x1 > 300) {
                         finish();
@@ -297,11 +297,11 @@ public class CreationEquipe extends AppCompatActivity {
 
 
         //Vérification qu'il y aille au moins 2 personnes dans une équipe
-        public void verificationEquipe() {
+        public void verificationEquipe(String compteurNbJoueurs) {
             if( ((okRouge && okBleu)||(okRouge && okJaune)||(okRouge && okVert)||(okBleu&&okJaune)||(okBleu&&okVert)||(okJaune&&okVert)) && !(joueurUniqueRouge||joueurUniqueBleu||joueurUniqueJaune||joueurUniqueVert)){
                 Intent next = new Intent(CreationEquipe.this, ChoixMode.class);
-                next.putExtra("nbJoueurs", compteurNbJoueurs);
-                next.putExtra("listeJoueurs", listeJoueurs);
+                next.putExtra("NB_JOUEURS", compteurNbJoueurs);
+                next.putExtra("LISTE_JOUEURS", listeJoueurs);
                 startActivity(next);
             } else {
                 this.msgErreur.setVisibility(View.VISIBLE);
