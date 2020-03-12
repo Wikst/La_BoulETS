@@ -33,7 +33,7 @@ public class PartiePerso extends AppCompatActivity {
         mot4 = (EditText) findViewById(R.id.mot4);
         mot5 = (EditText) findViewById(R.id.mot5);
 
-        int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
+        //int compteurNbJoueurs = getIntent().getIntExtra("nbJoueurs");
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
