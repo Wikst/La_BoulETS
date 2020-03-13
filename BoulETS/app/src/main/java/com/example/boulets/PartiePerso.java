@@ -7,7 +7,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +20,15 @@ public class PartiePerso extends AppCompatActivity {
     private EditText mot3;
     private EditText mot4;
     private EditText mot5;
+    private TextView joueurName;
     private TextView erreur;
+
     private String compteurNbJoueurs;
     private String[] listeJoueurs = new String[16];
     private String nbMots;
+    private String[][] banqueMots;
+
+    int compteur = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class PartiePerso extends AppCompatActivity {
         mot3 = (EditText) findViewById(R.id.mot3);
         mot4 = (EditText) findViewById(R.id.mot4);
         mot5 = (EditText) findViewById(R.id.mot5);
-
+        joueurName = (TextView) findViewById(R.id.joueur_name);
         erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
         
         //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans la fenêtre précédente (ChoixMode)
@@ -44,7 +48,11 @@ public class PartiePerso extends AppCompatActivity {
         compteurNbJoueurs = extras.getString("NB_JOUEURS");
         listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
         nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+
+        //Adaptation fenêtre et création banque de mots
         adapteNbMots(nbMots);
+        joueurName.setText(listeJoueurs[compteur]);
+        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -52,10 +60,84 @@ public class PartiePerso extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openFenetreJeu();
+                motsProchainJoueur(compteurNbJoueurs, nbMots);
             }
-        });
+        }); }
+
+    //Enregistre les mots dans la banque de mots(associée aux joueurs), efface les données dans l'écran et affiche le prochain nom
+    private void motsProchainJoueur(String compteurNbJoueursString, String nbMotsString){
+        int nbJoueurs = Integer.valueOf(compteurNbJoueursString);
+        int nbMots = Integer.valueOf(nbMotsString);
+
+        //Si dernier joueur, passe à la prochaine fenêtre (DemarrerPartie), sinon continue
+        if (compteur==nbJoueurs-1){
+            openFenetreJeu();
         }
+
+        //Selon Nb mots choisi, stock en mémoire les mots pour chaque individu (suivi par la variable "compteur") ET efface les mots écris entrée par l'utilisateur.
+        switch(nbMots) {
+            case 1:
+                banqueMots[compteur][0] = mot1.getText().toString();
+                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                mot1.setText(null);
+                break;
+            case 2:
+                banqueMots[compteur][0] = mot1.getText().toString();
+                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][1] = mot2.getText().toString();
+                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                mot1.setText(null);
+                mot2.setText(null);
+                break;
+            case 3:
+                banqueMots[compteur][0] = mot1.getText().toString();
+                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][1] = mot2.getText().toString();
+                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][2] = mot3.getText().toString();
+                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                mot1.setText(null);
+                mot2.setText(null);
+                mot3.setText(null);
+                break;
+            case 4:
+                banqueMots[compteur][0] = mot1.getText().toString();
+                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][1] = mot2.getText().toString();
+                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][2] = mot3.getText().toString();
+                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][3] = mot4.getText().toString();
+                Log.d("TAG_REC4", "Mot4: " + mot4.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                mot1.setText(null);
+                mot2.setText(null);
+                mot3.setText(null);
+                mot4.setText(null);
+                break;
+            case 5:
+                banqueMots[compteur][0] = mot1.getText().toString();
+                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][1] = mot2.getText().toString();
+                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][2] = mot3.getText().toString();
+                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][3] = mot4.getText().toString();
+                Log.d("TAG_REC4", "Mot4: " + mot4.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                banqueMots[compteur][4] = mot5.getText().toString();
+                Log.d("TAG_REC5", "Mot5: " + mot5.getText().toString() + " de " + listeJoueurs[compteur] + " a été enregistré");
+                mot1.setText(null);
+                mot2.setText(null);
+                mot3.setText(null);
+                mot4.setText(null);
+                mot5.setText(null);
+                break;
+        }
+
+        //Passe au prochain joueur pour écrire ses mots
+        compteur++;
+        Log.d("TAG_Compteur", "Le compteur est présentement à: " + compteur);
+        joueurName.setText(listeJoueurs[compteur]);
+    }
 
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
