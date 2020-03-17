@@ -19,7 +19,7 @@ public class DemarrerPartie extends AppCompatActivity {
     private Button commencerPartie;
     private TextView joueurCommence;
 
-    private String[] listeJoueurs = new String[16];
+    private String[][] listeJoueurs = new String[4][4];
     private String compteurNbJoueurs;
     private String nbMots;
 
@@ -34,8 +34,8 @@ public class DemarrerPartie extends AppCompatActivity {
         //la fenêtre précédente (ChoixMode ou PartiePerso)
         Bundle extras = getIntent().getExtras();
         compteurNbJoueurs = extras.getString("NB_JOUEURS");
-        listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
         nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
 
         choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
 
@@ -75,9 +75,16 @@ public class DemarrerPartie extends AppCompatActivity {
     }
 
     //Méthode qui choisit un joueur parmi les joueurs et affiche son nom
-    private void choisirTourJoueur(String[] listeJoueurs, String compteurNbJoueursString){
+    private void choisirTourJoueur(String[][] listeJoueurs, String compteurNbJoueursString){
         int nbJoueurs = Integer.valueOf(compteurNbJoueursString);
-        joueurCommence.setText(listeJoueurs[getRandomNumberInRange(0,nbJoueurs-1)]);
+        int equipe = getRandomNumberInRange(0,3);
+        int joueur = getRandomNumberInRange(0,3);
+
+        while(listeJoueurs[equipe][joueur] == null){
+            equipe = getRandomNumberInRange(0,3);
+            joueur = getRandomNumberInRange(0,3);
+        }
+        joueurCommence.setText(listeJoueurs[equipe][joueur]);
     }
 
     //Méthode pour obtenir une chiffre aléatoire entre une valeur min et max

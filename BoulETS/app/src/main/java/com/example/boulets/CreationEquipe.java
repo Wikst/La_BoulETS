@@ -50,7 +50,11 @@ public class CreationEquipe extends AppCompatActivity {
     private boolean joueurUniqueJaune = false;
     private boolean joueurUniqueVert = false;
     public int compteurNbJoueurs;
-    public String[] listeJoueurs = new String[16];
+    public int nbJoueursRouge = 0;
+    public int nbJoueursBleu = 0;
+    public int nbJoueursJaune = 0;
+    public int nbJoueursVert = 0;
+    public String[][] listeJoueurs = new String[4][4];
     float x1, x2, y1, y2;
 
     @Override
@@ -302,6 +306,9 @@ public class CreationEquipe extends AppCompatActivity {
                 Intent next = new Intent(CreationEquipe.this, ChoixMode.class);
                 next.putExtra("NB_JOUEURS", compteurNbJoueurs);
                 next.putExtra("LISTE_JOUEURS", listeJoueurs);
+                Bundle bundleListeJoueurs = new Bundle();
+                bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
+                next.putExtras(bundleListeJoueurs);
                 startActivity(next);
             } else {
                 this.msgErreur.setVisibility(View.VISIBLE);
@@ -311,89 +318,113 @@ public class CreationEquipe extends AppCompatActivity {
         //Compte le nombre de joueurs présent dans la partie
         public int compteNbJoueurs(){
         int compteurNbJoueurs = 0;
+        //int nbJoueursRouge = 0;
+        //int nbJoueursBleu = 0;
+        //int nbJoueursJaune = 0;
+        //int nbJoueursVert = 0;
 
         if(!rougeJ1.getText().toString().matches("")){
-            listeJoueurs[compteurNbJoueurs] = rougeJ1.getText().toString();
-            Log.d("Rouge Joueur 1", "Rouge J1 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[0][nbJoueursRouge] = rougeJ1.getText().toString();
+            Log.d("Rouge Joueur 1", "Rouge J1 s'appelle: " + listeJoueurs[0][nbJoueursRouge]);
             compteurNbJoueurs++;
+            nbJoueursRouge++;
         }
         if(!rougeJ2.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = rougeJ2.getText().toString();
-            Log.d("Rouge Joueur 2", "Rouge J2 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[0][nbJoueursRouge] = rougeJ2.getText().toString();
+            Log.d("Rouge Joueur 2", "Rouge J2 s'appelle: " + listeJoueurs[0][nbJoueursRouge]);
             compteurNbJoueurs++;
+            nbJoueursRouge++;
         }
         if(!rougeJ3.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = rougeJ3.getText().toString();
-            Log.d("Rouge Joueur 3", "Rouge J3 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[0][nbJoueursRouge] = rougeJ3.getText().toString();
+            Log.d("Rouge Joueur 3", "Rouge J3 s'appelle: " + listeJoueurs[0][nbJoueursRouge]);
             compteurNbJoueurs++;
+            nbJoueursRouge++;
         }
         if(!rougeJ4.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = rougeJ4.getText().toString();
-            Log.d("Rouge Joueur 4", "Rouge J4 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[0][nbJoueursRouge] = rougeJ4.getText().toString();
+            Log.d("Rouge Joueur 4", "Rouge J4 s'appelle: " + listeJoueurs[0][nbJoueursRouge]);
             compteurNbJoueurs++;
+            nbJoueursRouge++;
         }
         if(!bleuJ1.getText().toString().matches("")) {
-            this.listeJoueurs[compteurNbJoueurs] = bleuJ1.getText().toString();
-            Log.d("Bleu Joueur 1", "Bleu J1 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            this.listeJoueurs[1][nbJoueursBleu] = bleuJ1.getText().toString();
+            Log.d("Bleu Joueur 1", "Bleu J1 s'appelle: " + listeJoueurs[1][nbJoueursBleu]);
             compteurNbJoueurs++;
+            nbJoueursBleu++;
         }
         if(!bleuJ2.getText().toString().matches("")) {
-            this.listeJoueurs[compteurNbJoueurs] = bleuJ2.getText().toString();
-            Log.d("Bleu Joueur 2", "Bleu J2 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            this.listeJoueurs[1][nbJoueursBleu] = bleuJ2.getText().toString();
+            Log.d("Bleu Joueur 2", "Bleu J2 s'appelle: " + listeJoueurs[1][nbJoueursBleu]);
             compteurNbJoueurs++;
+            nbJoueursBleu++;
         }
         if(!bleuJ3.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = bleuJ3.getText().toString();
-            Log.d("Bleu Joueur 3", "Bleu J3 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[1][nbJoueursBleu] = bleuJ3.getText().toString();
+            Log.d("Bleu Joueur 3", "Bleu J3 s'appelle: " + listeJoueurs[1][nbJoueursBleu]);
             compteurNbJoueurs++;
+            nbJoueursBleu++;
         }
         if(!bleuJ4.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = bleuJ4.getText().toString();
-            Log.d("Bleu Joueur 4", "Bleu J4 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[1][nbJoueursBleu] = bleuJ4.getText().toString();
+            Log.d("Bleu Joueur 4", "Bleu J4 s'appelle: " + listeJoueurs[1][nbJoueursBleu]);
             compteurNbJoueurs++;
+            nbJoueursBleu++;
         }
         if(!jauneJ1.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = jauneJ1.getText().toString();
-            Log.d("Jaune Joueur 1", "Jaune J1 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[2][nbJoueursJaune] = jauneJ1.getText().toString();
+            Log.d("Jaune Joueur 1", "Jaune J1 s'appelle: " + listeJoueurs[2][nbJoueursJaune]);
             compteurNbJoueurs++;
+            nbJoueursJaune++;
         }
         if(!jauneJ2.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = jauneJ2.getText().toString();
-            Log.d("Jaune Joueur 2", "Jaune J2 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[2][nbJoueursJaune] = jauneJ2.getText().toString();
+            Log.d("Jaune Joueur 2", "Jaune J2 s'appelle: " + listeJoueurs[2][nbJoueursJaune]);
             compteurNbJoueurs++;
+            nbJoueursJaune++;
         }
         if(!jauneJ3.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = jauneJ3.getText().toString();
-            Log.d("Jaune Joueur 3", "Jaune J3 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[2][nbJoueursJaune] = jauneJ3.getText().toString();
+            Log.d("Jaune Joueur 3", "Jaune J3 s'appelle: " + listeJoueurs[2][nbJoueursJaune]);
             compteurNbJoueurs++;
+            nbJoueursJaune++;
         }
         if(!jauneJ4.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = jauneJ4.getText().toString();
-            Log.d("Jaune Joueur 4", "Jaune J4 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[2][nbJoueursJaune] = jauneJ4.getText().toString();
+            Log.d("Jaune Joueur 4", "Jaune J4 s'appelle: " + listeJoueurs[2][nbJoueursJaune]);
             compteurNbJoueurs++;
+            nbJoueursJaune++;
         }
         if(!vertJ1.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = vertJ1.getText().toString();
-            Log.d("Vert Joueur 1", "Vert J1 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[3][nbJoueursVert] = vertJ1.getText().toString();
+            Log.d("Vert Joueur 1", "Vert J1 s'appelle: " + listeJoueurs[3][nbJoueursVert]);
             compteurNbJoueurs++;
+            nbJoueursVert++;
         }
         if(!vertJ2.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = vertJ2.getText().toString();
-            Log.d("Vert Joueur 2", "Vert J2 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[3][nbJoueursVert] = vertJ2.getText().toString();
+            Log.d("Vert Joueur 2", "Vert J2 s'appelle: " + listeJoueurs[3][nbJoueursVert]);
             compteurNbJoueurs++;
+            nbJoueursVert++;
         }
         if(!vertJ3.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = vertJ3.getText().toString();
-            Log.d("Vert Joueur 3", "Vert J3 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[3][nbJoueursVert] = vertJ3.getText().toString();
+            Log.d("Vert Joueur 3", "Vert J3 s'appelle: " + listeJoueurs[3][nbJoueursVert]);
             compteurNbJoueurs++;
+            nbJoueursVert++;
         }
         if(!vertJ4.getText().toString().matches("")) {
-            listeJoueurs[compteurNbJoueurs] = vertJ4.getText().toString();
-            Log.d("Vert Joueur 4", "Vert J4 s'appelle: " + listeJoueurs[compteurNbJoueurs]);
+            listeJoueurs[3][nbJoueursVert] = vertJ4.getText().toString();
+            Log.d("Vert Joueur 4", "Vert J4 s'appelle: " + listeJoueurs[3][nbJoueursVert]);
             compteurNbJoueurs++;
+            nbJoueursVert++;
         }
 
         Log.d("Nombre de joueurs", "Il y a présentement: " + compteurNbJoueurs + " joueurs dans la partie!");
+            Log.d("TAG_NB_R", "Dont " + nbJoueursRouge + " dans l'équipe Rouge");
+            Log.d("TAG_NB_B", "Dont " + nbJoueursBleu + " dans l'équipe Bleu");
+            Log.d("TAG_NB_J", "Dont " + nbJoueursJaune + " dans l'équipe Jaune");
+            Log.d("TAG_NB_V", "Dont " + nbJoueursVert + " dans l'équipe Vert");
             return compteurNbJoueurs;
         }
 
