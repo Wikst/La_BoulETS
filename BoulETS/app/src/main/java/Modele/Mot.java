@@ -37,16 +37,16 @@ public class Mot {
 
     // ---- POPULATE ----
     public static Mot[] populateData(int tableId) {
-        return new Mot[] {
-                new Mot("King Kong",tableId),
-                new Mot("Kirby",tableId),
-                new Mot("Trou Noir",tableId),
-                new Mot("Chaise",tableId),
-                new Mot("Cahier",tableId),
-                new Mot("Michael Jackson",tableId),
-                new Mot("Guitare",tableId),
-                new Mot("Revolver",tableId),
-                new Mot("Tasse",tableId),
+            return new Mot[] {
+                    new Mot("King Kong",tableId),
+                    new Mot("Kirby",tableId),
+                    new Mot("Trou Noir",tableId),
+                    new Mot("Chaise",tableId),
+                    new Mot("Cahier",tableId),
+                    new Mot("Michael Jackson",tableId),
+                    new Mot("Guitare",tableId),
+                    new Mot("Revolver",tableId),
+                    new Mot("Tasse",tableId),
         };
     }
 }
