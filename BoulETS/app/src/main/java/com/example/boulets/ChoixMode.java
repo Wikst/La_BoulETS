@@ -58,7 +58,7 @@ public class ChoixMode extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openReady();
+                openReady(compteurNbJoueurs,listeJoueurs);
             }
         });
         partiePerso = (Button) findViewById(R.id.partiePerso);
@@ -81,8 +81,11 @@ public class ChoixMode extends AppCompatActivity {
     }
 
     //Redirection vers la page Démarrer le jeu
-    private void openReady() {
+    private void openReady(String compteurNbJoueurs, String[] listeJoueurs) {
         Intent intentReady = new Intent(this, DemarrerPartie.class);
+        intentReady.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+        intentReady.putExtra("NB_JOUEURS", compteurNbJoueurs);
+        intentReady.putExtra("LISTE_JOUEURS",listeJoueurs);
         startActivity(intentReady);
     }
 

@@ -24,6 +24,7 @@ public class PartiePerso extends AppCompatActivity {
     private TextView erreur;
 
     private String compteurNbJoueurs;
+    private String compteurMots;
     private String[] listeJoueurs = new String[16];
     private String nbMots;
     private String[][] banqueMots;
@@ -143,6 +144,9 @@ public class PartiePerso extends AppCompatActivity {
     private void openFenetreJeu() {
         if(verificationMotsRemplis()) {
             Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
+            intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+            intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
+            intentDemarrer.putExtra("LISTE_JOUEURS",listeJoueurs);
             startActivity(intentDemarrer);
         }
     }
