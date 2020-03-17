@@ -35,8 +35,6 @@
         android:id="@+id/joueur_approche"
         android:layout_width="193dp"
         android:layout_height="53dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
         android:gravity="center"
         android:text=", prépares-toi!"
         android:textSize="30sp"
@@ -63,7 +61,6 @@
         android:layout_marginStart="112dp"
         android:layout_marginLeft="112dp"
         android:gravity="center"
-        android:text="Mephisto (bleu)"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionLibre" />

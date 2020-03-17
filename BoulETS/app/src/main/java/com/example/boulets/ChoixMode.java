@@ -20,7 +20,7 @@ public class ChoixMode extends AppCompatActivity {
     private Button partieRapide;
     private Button partiePerso;
     private String compteurMots = "2";
-    private String[] listeJoueurs = new String[16];
+    private String[][] listeJoueurs = new String[4][4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +48,18 @@ public class ChoixMode extends AppCompatActivity {
         //Conserve l'information de l'activité précédente(CreationEquipe)
         Bundle extras = getIntent().getExtras();
         final String compteurNbJoueurs = extras.getString("NB_JOUEURS");
-        listeJoueurs = extras.getStringArray("LISTE_JOUEURS");
+        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
 
-
+      /* Test pour vérifier String[][] de joueurs est reçu dans la nouvelle activité
+      Log.d("TAG_FOR", "Voici la liste [][] des joueurs retenus dans ChoixMode:");
+        for (int i = 0; i<4;i++){       //Équipe
+            for(int j = 0; j<4; j++){   //Joueur
+                if(listeJoueurs[i][j] != null){
+                    Log.d("TAG_FOR", listeJoueurs[i][j]);
+                }
+            }
+        }
+       */
 
         //Transition vers les autres vues à l'aide des boutons
         partieRapide = (Button) findViewById(R.id.partieRapide);
@@ -58,7 +67,7 @@ public class ChoixMode extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openReady();
+                openReady(compteurNbJoueurs,listeJoueurs);
             }
         });
         partiePerso = (Button) findViewById(R.id.partiePerso);
@@ -72,17 +81,24 @@ public class ChoixMode extends AppCompatActivity {
     }
 
     //Redirection vers la page Partie personnalisée
-    private void openPerso(String compteurNbJoueurs, String[] listeJoueurs) {
+    private void openPerso(String compteurNbJoueurs, String[][] listeJoueurs) {
         Intent intentPerso = new Intent(this, PartiePerso.class);
         intentPerso.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
         intentPerso.putExtra("NB_JOUEURS", compteurNbJoueurs);
-        intentPerso.putExtra("LISTE_JOUEURS",listeJoueurs);
+        Bundle bundleListeJoueurs = new Bundle();
+        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
+        intentPerso.putExtras(bundleListeJoueurs);
         startActivity(intentPerso);
     }
 
     //Redirection vers la page Démarrer le jeu
-    private void openReady() {
+    private void openReady(String compteurNbJoueurs, String[][] listeJoueurs) {
         Intent intentReady = new Intent(this, DemarrerPartie.class);
+        intentReady.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+        intentReady.putExtra("NB_JOUEURS", compteurNbJoueurs);
+        Bundle bundleListeJoueurs = new Bundle();
+        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
+        intentReady.putExtras(bundleListeJoueurs);
         startActivity(intentReady);
     }
 

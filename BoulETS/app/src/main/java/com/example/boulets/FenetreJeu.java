@@ -19,8 +19,9 @@ import java.util.concurrent.TimeUnit;
 public class FenetreJeu extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
+    private TextView mot;
 
-    private long timeCountInMilliSeconds = 1 * 3000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
+    private long timeCountInMilliSeconds = 1 * 30000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -38,10 +39,20 @@ public class FenetreJeu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jeu);
 
+        mot = (TextView) findViewById(R.id.mot);
+
+        //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans
+        //la fenêtre précédente (DemarrerPartie)
+        Bundle extras = getIntent().getExtras();
+        compteurNbJoueurs = extras.getString("NB_JOUEURS");
+        nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
+        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
+
         // method call to initialize the views
         initViews();
         // method call to initialize the listeners
-                             //initListeners();
+            //initListeners();
         startCountDownTimer();
 
         }
@@ -58,6 +69,11 @@ public class FenetreJeu extends AppCompatActivity {
                 y2 = touchevent.getY();
                 if (x1 < x2 && x2-x1 > 300) {
                     Log.d("SwipeBas", "Swipe vers la droite effectué");
+
+
+                    //ajoutPoint();
+
+
                     //finish();
                 }
                 if (y1 < y2 && y2-y1 > 250) {
@@ -108,7 +124,9 @@ public class FenetreJeu extends AppCompatActivity {
     }*/
 
     /**
-     * method to reset count down timer
+     * method to reset count down timer. Inspirée du
+     * site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
+     *
      */
     private void reset() {
         stopCountDownTimer();
@@ -116,7 +134,9 @@ public class FenetreJeu extends AppCompatActivity {
     }
 
     /**
-     * method to start and stop count down timer
+     * method to start and stop count down timer. Inspirée
+     * du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
+     *
      */
     private void startStop() {
         if (timerStatus == TimerStatus.STOPPED) {
@@ -151,7 +171,8 @@ public class FenetreJeu extends AppCompatActivity {
     }
 
     /**
-     * method to initialize the values for count down timer
+     * method to initialize the values for count down timer. Inspirée
+     * du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      */
     private void setTimerValues() {
         int time = 1;
@@ -168,7 +189,8 @@ public class FenetreJeu extends AppCompatActivity {
     }
 
     /**
-     * method to start count down timer
+     * method to start count down timer. Inspirée
+     * du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      */
     private void startCountDownTimer() {
 
@@ -205,7 +227,8 @@ public class FenetreJeu extends AppCompatActivity {
     }
 
     /**
-     * method to stop count down timer
+     * method to stop count down timer. Inspirée
+     *du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      */
     private void stopCountDownTimer() {
         countDownTimer.cancel();
@@ -213,7 +236,8 @@ public class FenetreJeu extends AppCompatActivity {
     }
 
     /**
-     * method to set circular progress bar values
+     * method to set circular progress bar values. Inspirée
+     *du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      */
     private void setProgressBarValues() {
 
@@ -223,7 +247,8 @@ public class FenetreJeu extends AppCompatActivity {
 
 
     /**
-     * method to convert millisecond to time format
+     * method to convert millisecond to time format. Inspirée
+     * du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      *
      * @param milliSeconds
      * @return HH:mm:ss time formatted string
