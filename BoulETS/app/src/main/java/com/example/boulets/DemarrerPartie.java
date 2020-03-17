@@ -22,6 +22,8 @@ public class DemarrerPartie extends AppCompatActivity {
     private String[][] listeJoueurs = new String[4][4];
     private String compteurNbJoueurs;
     private String nbMots;
+    private String[][] banqueMots;
+    //private String compteurMots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class DemarrerPartie extends AppCompatActivity {
         compteurNbJoueurs = extras.getString("NB_JOUEURS");
         nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
         listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
+        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
 
         choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
 
@@ -53,6 +56,16 @@ public class DemarrerPartie extends AppCompatActivity {
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
         Intent intentDemarrer = new Intent(this, FenetreJeu.class);
+        intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+        intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
+
+        Bundle bundleListeJoueurs = new Bundle();
+        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
+        intentDemarrer.putExtras(bundleListeJoueurs);
+
+        Bundle bundleListeMots = new Bundle();
+        bundleListeMots.putSerializable("LISTE_MOTS", banqueMots);
+        intentDemarrer.putExtras(bundleListeMots);
         startActivity(intentDemarrer);
     }
 

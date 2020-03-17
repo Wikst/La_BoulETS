@@ -41,6 +41,14 @@ public class FenetreJeu extends AppCompatActivity {
 
         mot = (TextView) findViewById(R.id.mot);
 
+        //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans
+        //la fenêtre précédente (DemarrerPartie)
+        Bundle extras = getIntent().getExtras();
+        compteurNbJoueurs = extras.getString("NB_JOUEURS");
+        nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
+        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
+        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
+
         // method call to initialize the views
         initViews();
         // method call to initialize the listeners

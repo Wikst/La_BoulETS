@@ -148,9 +148,11 @@ public class PartiePerso extends AppCompatActivity {
             Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
             intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
             intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
+
             Bundle bundleListeJoueurs = new Bundle();
             bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueursDoubleArray);
             intentDemarrer.putExtras(bundleListeJoueurs);
+
             Bundle bundleListeMots = new Bundle();
             bundleListeMots.putSerializable("LISTE_MOTS", banqueMots);
             intentDemarrer.putExtras(bundleListeMots);
