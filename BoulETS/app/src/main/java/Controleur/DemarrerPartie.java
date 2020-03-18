@@ -1,4 +1,4 @@
-package com.example.boulets;
+package Controleur;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
+import com.example.boulets.R;
 
 import java.util.Random;
 

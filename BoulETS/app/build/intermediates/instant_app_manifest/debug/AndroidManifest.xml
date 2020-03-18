@@ -20,11 +20,11 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.boulets.CreationEquipe"
+            android:name="Controleur.CreationEquipe"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.MainActivity"
+            android:name="Controleur.MainActivity"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,37 +33,41 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.boulets.ChoixMode"
+            android:name="Controleur.ChoixMode"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.PartiePerso"
+            android:name="Controleur.PartiePerso"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.DemarrerPartie"
+            android:name="Controleur.DemarrerPartie"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.FenetreJeu"
+            android:name="Controleur.FenetreJeu"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.Pointage"
+            android:name="Controleur.Pointage"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.TransitionPhase"
+            android:name="Controleur.TransitionPhase"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.FinJeu"
+            android:name="Controleur.FinJeu"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.example.boulets.Score"
+            android:name="Controleur.Score"
             android:screenOrientation="landscape" >
         </activity>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:exported="false" />
     </application>
 
 </manifest>

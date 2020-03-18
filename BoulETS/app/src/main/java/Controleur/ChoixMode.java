@@ -1,9 +1,7 @@
-package com.example.boulets;
+package Controleur;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +9,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.boulets.R;
 
 public class ChoixMode extends AppCompatActivity {
     //Déclaration des variables

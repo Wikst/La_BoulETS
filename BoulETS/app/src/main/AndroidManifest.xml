@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreationEquipe"
+        <activity android:name="Controleur.CreationEquipe"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name="Controleur.MainActivity"
             android:screenOrientation="landscape">
 
             <intent-filter>
@@ -21,28 +21,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChoixMode"
+        <activity android:name="Controleur.ChoixMode"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".PartiePerso"
+        <activity android:name="Controleur.PartiePerso"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".DemarrerPartie"
+        <activity android:name="Controleur.DemarrerPartie"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".FenetreJeu"
+        <activity android:name="Controleur.FenetreJeu"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".Pointage"
+        <activity android:name="Controleur.Pointage"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".TransitionPhase"
+        <activity android:name="Controleur.TransitionPhase"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".FinJeu"
+        <activity android:name="Controleur.FinJeu"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".Score"
+        <activity android:name="Controleur.Score"
             android:screenOrientation="landscape">
         </activity>
 
