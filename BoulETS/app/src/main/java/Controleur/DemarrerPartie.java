@@ -56,7 +56,7 @@ public class DemarrerPartie extends AppCompatActivity {
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
         Intent intentDemarrer = new Intent(this, FenetreJeu.class);
-        intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
+        //intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
         intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
 
         Bundle bundleListeJoueurs = new Bundle();

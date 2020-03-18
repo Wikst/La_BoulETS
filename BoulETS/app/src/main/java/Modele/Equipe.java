@@ -3,11 +3,11 @@ package Modele;
 import android.graphics.Color;
 
 public class Equipe {
-    Color CouleurEquipe;
-    String[] tabJoueur;
-    int Score;
+    private int CouleurEquipe;
+    private String[] tabJoueur;
+    private int Score;
 
-    public Equipe(Color CouleurEquipe, String[] tabJoueur){
+    public Equipe(int CouleurEquipe, String[] tabJoueur){
         this.CouleurEquipe =  CouleurEquipe;
         this.tabJoueur = tabJoueur;
         this.Score = 0;
@@ -21,11 +21,15 @@ public class Equipe {
         Score = score;
     }
 
-    public Color getCouleurEquipe() {
+    public int getCouleurEquipe() {
         return CouleurEquipe;
     }
 
     public String getJoueur(int numJoueur){
         return tabJoueur[numJoueur];
+    }
+
+    public int getNbJoueurs(){
+        return tabJoueur.length;
     }
 }
