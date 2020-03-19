@@ -16,6 +16,9 @@ import com.example.boulets.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Modele.Equipe;
 import Modele.ModeleJeu;
 
@@ -169,6 +172,7 @@ public class CreationEquipe extends AppCompatActivity {
                 x2 = touchevent.getX();
                 y2 = touchevent.getY();
                 if (x1 > x2 && x1 - x2 > 300) {
+                    sendEquipes();
                     //Verifie si kes equipes ont minimum 2 joueurs sinon affiche un message d erreur
                     if (jeu.verificationMinJoueur()){
                         Intent next = new Intent(CreationEquipe.this, ChoixMode.class);
@@ -197,7 +201,8 @@ public class CreationEquipe extends AppCompatActivity {
         getBlueTeam();
         getGreenTeam();
         getYellowTeam();
-        jeu.createListEquipe(listeJoueurs);
+        if (!listeJoueurs.equals(null))
+            jeu.createListEquipe(listeJoueurs);
 
     }
 

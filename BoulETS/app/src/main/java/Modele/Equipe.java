@@ -1,15 +1,16 @@
 package Modele;
 
-import android.graphics.Color;
+import java.util.ArrayList;
 
 public class Equipe {
-    private int CouleurEquipe;
-    private String[] tabJoueur;
+    private int numEquipe;
+    private ArrayList<String> tabJoueur;
     private int Score;
 
-    public Equipe(int CouleurEquipe, String[] tabJoueur){
-        this.CouleurEquipe =  CouleurEquipe;
-        this.tabJoueur = tabJoueur;
+    public Equipe(int numEquipe, String[] listejoueur){
+        this.numEquipe = numEquipe;
+        this.tabJoueur = new ArrayList<String>();
+        FillArayList(listejoueur);
         this.Score = 0;
     }
 
@@ -21,15 +22,24 @@ public class Equipe {
         Score = score;
     }
 
-    public int getCouleurEquipe() {
-        return CouleurEquipe;
+    public int getNumEquipe() {
+        return numEquipe;
     }
 
     public String getJoueur(int numJoueur){
-        return tabJoueur[numJoueur];
+        return tabJoueur.get(numJoueur);
     }
 
     public int getNbJoueurs(){
-        return tabJoueur.length;
+        return tabJoueur.size();
+    }
+
+    private void FillArayList(String[] listeJoueur){
+        for(int i=0; i<listeJoueur.length; i++){
+            //Verification que la chaine n est pas vide ou nulle
+            if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
+                this.tabJoueur.add(listeJoueur[i]);
+            }
+        }
     }
 }

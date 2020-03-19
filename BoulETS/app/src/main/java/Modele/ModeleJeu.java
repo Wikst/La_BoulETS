@@ -1,13 +1,13 @@
 package Modele;
 
-import java.util.List;
+import java.util.ArrayList;
 
 //Patern de Singleton inspire de https://openclassrooms.com/forum/sujet/android-meilleur-pattern-singleton
 public final class ModeleJeu {
 
     private static volatile ModeleJeu instance = null;
 
-    private List<Equipe> EquipeList;
+    private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
 
     private ModeleJeu(){
@@ -34,20 +34,30 @@ public final class ModeleJeu {
 
     public int getNbJoueurs(){
         int nbJoueurPartie =0;
-        for (int i=0; i<EquipeList.size(); i++ ){
-            nbJoueurPartie += EquipeList.get(i).getNbJoueurs();
+        for (int i = 0; i< equipeList.size(); i++ ){
+            nbJoueurPartie += equipeList.get(i).getNbJoueurs();
         }
         return nbJoueurPartie;
     }
 
     public boolean verificationMinJoueur(){
-        for (int i=0; i<EquipeList.size();i++){
-            if (EquipeList.get(i).getNbJoueurs() < 2) return false;
+        int min = 2;
+        boolean verif = false;
+        for (int i = 0; i< equipeList.size(); i++){
+            min = Math.min(min,equipeList.get(i).getNbJoueurs());
+            System.out.println("min : "+min);
+            System.out.println("size : "+equipeList.size());
+            System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
         }
-        return true;
+        if (min >= 2)
+            verif = true;
+        return verif;
     }
 
     public void createListEquipe(String[][] listeJoueurs){
-        
+        equipeList = new ArrayList<Equipe>();
+        for (int i=0; i<listeJoueurs.length; i++){
+            equipeList.add(new Equipe(i,listeJoueurs[i]));
+        }
     }
 }
