@@ -1,5 +1,7 @@
 package Modele;
 
+import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 
 //Patern de Singleton inspire de https://openclassrooms.com/forum/sujet/android-meilleur-pattern-singleton
@@ -11,6 +13,8 @@ public final class ModeleJeu {
     private int nbMotParJoueur;
     private final int NBJOUEURSMIN = 2;
     private final int NBEQUIPEMIN =2;
+    private TableMot tableMot;
+
 
     private ModeleJeu(){
         super();
@@ -32,6 +36,12 @@ public final class ModeleJeu {
 
     public void setNbMotParJoueur(int nbMotParJoueur) {
         this.nbMotParJoueur = nbMotParJoueur;
+    }
+
+    public void setTablePartieRapide(){
+        this.tableMot = TableMot.populateData();
+        System.out.println("Nom table : "+tableMot.getNomTable());
+        System.out.println("id : "+tableMot.getId());
     }
 
     public int getNbJoueurs(){

@@ -47,6 +47,7 @@ public class Mot {
                     new Mot("Guitare",tableId),
                     new Mot("Revolver",tableId),
                     new Mot("Tasse",tableId),
+                    new Mot("Bilboquet",tableId)
         };
     }
 }

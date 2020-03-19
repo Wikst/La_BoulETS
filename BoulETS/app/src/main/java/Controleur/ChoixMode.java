@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.boulets.R;
 
-public class ChoixMode extends AppCompatActivity {
+import Modele.ModeleJeu;
+
+public class ChoixMode extends AppCompatActivity implements View.OnClickListener {
     //Déclaration des variables
     float x1, x2, y1, y2;
     private TextView nbMots;
@@ -20,6 +22,7 @@ public class ChoixMode extends AppCompatActivity {
     private Button partieRapide;
     private Button partiePerso;
     private int compteurMots = 2;
+    private ModeleJeu jeu = ModeleJeu.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,30 +50,26 @@ public class ChoixMode extends AppCompatActivity {
         //Transition vers les autres vues à l'aide des boutons
         partieRapide = (Button) findViewById(R.id.partieRapide);
         partiePerso = (Button) findViewById(R.id.partiePerso);
+
+        partieRapide.setOnClickListener(this);
+        partiePerso.setOnClickListener(this);
     }
 
-    //Redirection vers la page Partie personnalisée
-    private void openPerso(String compteurNbJoueurs, String[][] listeJoueurs) {
-        Intent intentPerso = new Intent(this, PartiePerso.class);
-        intentPerso.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
-        intentPerso.putExtra("NB_JOUEURS", compteurNbJoueurs);
-        Bundle bundleListeJoueurs = new Bundle();
-        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
-        intentPerso.putExtras(bundleListeJoueurs);
-        startActivity(intentPerso);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.partieRapide:
+                jeu.setTablePartieRapide();
+                jeu.setNbMotParJoueur(compteurMots);
+                startActivity(new Intent(this, DemarrerPartie.class));
+                break;
+            case R.id.partiePerso:
+                jeu.setNbMotParJoueur(compteurMots);
+                startActivity(new Intent(this, PartiePerso.class));
+                break;
+        }
     }
-
-    //Redirection vers la page Démarrer le jeu
-    private void openReady(String compteurNbJoueurs, String[][] listeJoueurs) {
-        Intent intentReady = new Intent(this, DemarrerPartie.class);
-        intentReady.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
-        intentReady.putExtra("NB_JOUEURS", compteurNbJoueurs);
-        Bundle bundleListeJoueurs = new Bundle();
-        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
-        intentReady.putExtras(bundleListeJoueurs);
-        startActivity(intentReady);
-    }
-
+    
     //Pour le swipe
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {
@@ -92,4 +91,5 @@ public class ChoixMode extends AppCompatActivity {
     //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
     @Override
     public void onBackPressed() {}
+
 }
