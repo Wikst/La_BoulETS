@@ -37,7 +37,7 @@ public class ChoixMode extends AppCompatActivity implements View.OnClickListener
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 nbMots.setText("" + progress);
                 compteurMots = progress;
-                //Log.d("tagMots", "Nombre de mots choisi: " + compteurMots);
+                //System.out.println("Compteur : "+compteurMots);
             }
 
             @Override
@@ -69,7 +69,7 @@ public class ChoixMode extends AppCompatActivity implements View.OnClickListener
                 break;
         }
     }
-    
+
     //Pour le swipe
     public boolean onTouchEvent(MotionEvent touchevent) {
         switch (touchevent.getAction()) {

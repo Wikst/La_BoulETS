@@ -52,6 +52,10 @@ public final class ModeleJeu {
         return nbJoueurPartie;
     }
 
+    /**
+     * Verifie qu il y a bien minimun 2 joueurs dans chaque equipe et un minimum de 2 equipes
+     * @return
+     */
     public boolean verificationMinJoueur(){
         boolean verif = false;
         System.out.println("size : "+equipeList.size());
@@ -59,7 +63,7 @@ public final class ModeleJeu {
             int min = NBJOUEURSMIN;
             for (int i = 0; i< equipeList.size(); i++){
                 min = Math.min(min,equipeList.get(i).getNbJoueurs());
-                System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
+                //System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
             }
             System.out.println("min : "+min);
             if (min >= NBJOUEURSMIN)
@@ -68,6 +72,10 @@ public final class ModeleJeu {
         return verif;
     }
 
+    /**
+     * Cree la liste des equipes, si une equipe ne possede pas de joueur elle n<est pas creee
+     * @param listeJoueurs
+     */
     public void createListEquipe(String[][] listeJoueurs){
         equipeList = new ArrayList<Equipe>();
         for (int i=0; i<listeJoueurs.length; i++){
@@ -77,6 +85,11 @@ public final class ModeleJeu {
         }
     }
 
+    /**
+     * Enleve les chaines vides et retourne une liste de joueur sous le format ArrayList
+     * @param listeJoueur
+     * @return
+     */
     private ArrayList<String> RemoveNull(String[] listeJoueur){
         ArrayList<String> joueursList = new ArrayList<String>();
         for(int i=0; i<listeJoueur.length; i++){

@@ -32,13 +32,4 @@ public class Equipe {
     public int getNbJoueurs(){
         return tabJoueur.size();
     }
-
-    private void FillArayList(String[] listeJoueur){
-        for(int i=0; i<listeJoueur.length; i++){
-            //Verification que la chaine n est pas vide ou nulle
-            if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
-                this.tabJoueur.add(listeJoueur[i]);
-            }
-        }
-    }
 }
