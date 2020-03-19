@@ -19,8 +19,7 @@ public class ChoixMode extends AppCompatActivity {
     private SeekBar seekBar;
     private Button partieRapide;
     private Button partiePerso;
-    private String compteurMots = "2";
-    private String[][] listeJoueurs = new String[4][4];
+    private int compteurMots = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class ChoixMode extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
                 nbMots.setText("" + progress);
-                compteurMots = nbMots.getText().toString();
+                compteurMots = progress;
                 //Log.d("tagMots", "Nombre de mots choisi: " + compteurMots);
             }
 
@@ -45,39 +44,9 @@ public class ChoixMode extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) { }
         });
 
-        //Conserve l'information de l'activité précédente(CreationEquipe)
-        Bundle extras = getIntent().getExtras();
-        final String compteurNbJoueurs = extras.getString("NB_JOUEURS");
-        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
-
-      /* Test pour vérifier String[][] de joueurs est reçu dans la nouvelle activité
-      Log.d("TAG_FOR", "Voici la liste [][] des joueurs retenus dans ChoixMode:");
-        for (int i = 0; i<4;i++){       //Équipe
-            for(int j = 0; j<4; j++){   //Joueur
-                if(listeJoueurs[i][j] != null){
-                    Log.d("TAG_FOR", listeJoueurs[i][j]);
-                }
-            }
-        }
-       */
-
         //Transition vers les autres vues à l'aide des boutons
         partieRapide = (Button) findViewById(R.id.partieRapide);
-        partieRapide.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                openReady(compteurNbJoueurs,listeJoueurs);
-            }
-        });
         partiePerso = (Button) findViewById(R.id.partiePerso);
-        partiePerso.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                openPerso(compteurNbJoueurs,listeJoueurs);
-            }
-        });
     }
 
     //Redirection vers la page Partie personnalisée

@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.example.boulets.R;
 
+import Modele.ModeleJeu;
+
 public class MainActivity extends AppCompatActivity {
     private Button buttonCommencer;
 
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceuil);
+        ModeleJeu.getInstance(); //Instanciation du singleton ModeleJeu
 
         buttonCommencer = (Button) findViewById(R.id.buttonCommencer);
         buttonCommencer.setOnClickListener(new View.OnClickListener() {
