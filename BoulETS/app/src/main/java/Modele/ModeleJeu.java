@@ -9,6 +9,8 @@ public final class ModeleJeu {
 
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
+    private final int NBJOUEURSMIN = 2;
+    private final int NBEQUIPEMIN =2;
 
     private ModeleJeu(){
         super();
@@ -41,23 +43,38 @@ public final class ModeleJeu {
     }
 
     public boolean verificationMinJoueur(){
-        int min = 2;
         boolean verif = false;
-        for (int i = 0; i< equipeList.size(); i++){
-            min = Math.min(min,equipeList.get(i).getNbJoueurs());
+        System.out.println("size : "+equipeList.size());
+        if (equipeList.size() >= NBEQUIPEMIN){
+            int min = NBJOUEURSMIN;
+            for (int i = 0; i< equipeList.size(); i++){
+                min = Math.min(min,equipeList.get(i).getNbJoueurs());
+                System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
+            }
             System.out.println("min : "+min);
-            System.out.println("size : "+equipeList.size());
-            System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
+            if (min >= NBJOUEURSMIN)
+                verif = true;
         }
-        if (min >= 2)
-            verif = true;
         return verif;
     }
 
     public void createListEquipe(String[][] listeJoueurs){
         equipeList = new ArrayList<Equipe>();
         for (int i=0; i<listeJoueurs.length; i++){
-            equipeList.add(new Equipe(i,listeJoueurs[i]));
+            ArrayList<String> joueursList = RemoveNull(listeJoueurs[i]);
+            if (joueursList.size() > 0)
+                equipeList.add(new Equipe(i,joueursList));
         }
+    }
+
+    private ArrayList<String> RemoveNull(String[] listeJoueur){
+        ArrayList<String> joueursList = new ArrayList<String>();
+        for(int i=0; i<listeJoueur.length; i++){
+            //Verification que la chaine n est pas vide ou nulle
+            if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
+                joueursList.add(listeJoueur[i]);
+            }
+        }
+        return joueursList;
     }
 }

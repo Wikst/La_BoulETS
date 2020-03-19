@@ -7,10 +7,9 @@ public class Equipe {
     private ArrayList<String> tabJoueur;
     private int Score;
 
-    public Equipe(int numEquipe, String[] listejoueur){
+    public Equipe(int numEquipe, ArrayList<String> tabJoueur){
         this.numEquipe = numEquipe;
-        this.tabJoueur = new ArrayList<String>();
-        FillArayList(listejoueur);
+        this.tabJoueur = tabJoueur;
         this.Score = 0;
     }
 
