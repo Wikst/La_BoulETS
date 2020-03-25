@@ -2,7 +2,6 @@ package Controleur;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,6 @@ import com.example.boulets.R;
 
 import java.util.ArrayList;
 
-import Modele.Equipe;
 import Modele.ModeleJeu;
 
 public class PartiePerso extends AppCompatActivity {
@@ -31,8 +29,8 @@ public class PartiePerso extends AppCompatActivity {
     private TextView erreur;
 
     private ModeleJeu jeu = ModeleJeu.getInstance();
-    private ArrayList<Equipe> listeEquipe;
-    private String[] listeMot;
+    int nbMotsParJoueurs;
+    private int compteur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +44,12 @@ public class PartiePerso extends AppCompatActivity {
         mot5 = (EditText) findViewById(R.id.mot5);
         joueurName = (TextView) findViewById(R.id.joueur_name);
         erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
+        compteur = 0;
+        //Recuperation nb de mot par joueur
+        nbMotsParJoueurs = jeu.getNbMotParJoueur();
 
         //Adaptation fenêtre
-        adapteNbMots(jeu.getNbMotParJoueur());
-
-        //Recuperation des equipes
-        listeEquipe = jeu.getEquipeList();
+        adapteNbMots();
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -68,10 +66,13 @@ public class PartiePerso extends AppCompatActivity {
 
     //Enregistre les mots dans la banque de mots(associée aux joueurs), efface les données dans l'écran et affiche le prochain nom
     private void motsProchainJoueur(){
-        //TODO envoyer mots + verif nb mots envoyes
-
-        //Vérifie qu'aucune case mot n'est laissé vide
-        //Passe au prochain joueur pour écrire ses mots
+        ArrayList<String> listeMot = getListeMot();
+        if (jeu.listeMotIsValid(listeMot)){
+            //TODO ajout mots a tableJeu, Vider la fennetre, changer joueur
+        }
+        else {
+            erreur.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -81,8 +82,25 @@ public class PartiePerso extends AppCompatActivity {
             startActivity(intentDemarrer);
     }
 
-    private void adapteNbMots(int nbMots){
-        switch(nbMots){
+    private ArrayList<String> getListeMot(){
+        ArrayList<String> listeMot = new ArrayList<String>();
+        listeMot.add(mot1.getText().toString());
+        listeMot.add(mot2.getText().toString());
+        switch(nbMotsParJoueurs){
+            case 5:
+                listeMot.add(mot5.getText().toString());
+            case 4:
+                listeMot.add(mot4.getText().toString());
+            case 3:
+                listeMot.add(mot3.getText().toString());
+                break;
+        }
+        return listeMot;
+    }
+
+    private void adapteNbMots(){
+        //Switch fonctionne en sequence, si aucun break il continue jusqu'a celui-ci en partant du bon case
+        switch(nbMotsParJoueurs){
             case 5:
                 mot5.setVisibility(View.VISIBLE);
             case 4:

@@ -172,11 +172,22 @@ public final class ModeleJeu {
         ArrayList<Joueur> joueursList = new ArrayList<Joueur>();
         for(int i=0; i<listeJoueur.length; i++){
             //Verification que la chaine n est pas vide ou nulle
-            if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
-                joueursList.add(new Joueur(listeJoueur[i]));
+            if (!listeJoueur[i].trim().isEmpty() && listeJoueur[i] != null){
+                joueursList.add(new Joueur(listeJoueur[i].trim()));
             }
         }
         return joueursList;
+    }
+
+    public boolean listeMotIsValid(ArrayList<String> listeMot){
+        for (int i=0; i<listeMot.size();i++){
+            String temp = listeMot.get(i).trim();
+            System.out.println("Mot : "+temp);
+            if (temp.isEmpty() || temp == null){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
