@@ -32,15 +32,7 @@ public class DemarrerPartie extends AppCompatActivity {
 
         joueurCommence = (TextView) findViewById(R.id.joueur_commence);
 
-        //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans
-        //la fenêtre précédente (ChoixMode ou PartiePerso)
-        Bundle extras = getIntent().getExtras();
-        compteurNbJoueurs = extras.getString("NB_JOUEURS");
-        nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
-        listeJoueurs = (String[][]) extras.getSerializable("LISTE_JOUEURS");
-        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
-
-        choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
+        //choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
 
         //Transition vers les autres vues à l'aide des boutons
         commencerPartie = (Button) findViewById(R.id.boutton_commencer);
