@@ -13,17 +13,16 @@ import com.example.boulets.R;
 
 import java.util.Random;
 
+import Modele.Joueur;
+import Modele.ModeleJeu;
+
 public class DemarrerPartie extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
     private Button commencerPartie;
     private TextView joueurCommence;
+    private ModeleJeu jeu = ModeleJeu.getInstance();
 
-    private String[][] listeJoueurs = new String[4][4];
-    private String compteurNbJoueurs;
-    private String nbMots;
-    private String[][] banqueMots;
-    //private String compteurMots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,10 @@ public class DemarrerPartie extends AppCompatActivity {
         joueurCommence = (TextView) findViewById(R.id.joueur_commence);
 
         //choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
+        jeu.SetOrdre();
+        jeu.NextJoueur();
+        joueurCommence.setText(jeu.getJoueurActif().getNom());
+
 
         //Transition vers les autres vues à l'aide des boutons
         commencerPartie = (Button) findViewById(R.id.boutton_commencer);
@@ -48,16 +51,6 @@ public class DemarrerPartie extends AppCompatActivity {
     //Redirection vers la page de jeu
     private void openFenetreJeu() {
         Intent intentDemarrer = new Intent(this, FenetreJeu.class);
-        //intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
-        intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
-
-        Bundle bundleListeJoueurs = new Bundle();
-        bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueurs);
-        intentDemarrer.putExtras(bundleListeJoueurs);
-
-        Bundle bundleListeMots = new Bundle();
-        bundleListeMots.putSerializable("LISTE_MOTS", banqueMots);
-        intentDemarrer.putExtras(bundleListeMots);
         startActivity(intentDemarrer);
     }
 
@@ -77,30 +70,6 @@ public class DemarrerPartie extends AppCompatActivity {
                 break;
         }
         return false;
-    }
-
-    //Méthode qui choisit un joueur parmi les joueurs et affiche son nom
-    private void choisirTourJoueur(String[][] listeJoueurs, String compteurNbJoueursString){
-        int nbJoueurs = Integer.valueOf(compteurNbJoueursString);
-        int equipe = getRandomNumberInRange(0,3);
-        int joueur = getRandomNumberInRange(0,3);
-
-        while(listeJoueurs[equipe][joueur] == null){
-            equipe = getRandomNumberInRange(0,3);
-            joueur = getRandomNumberInRange(0,3);
-        }
-        joueurCommence.setText(listeJoueurs[equipe][joueur]);
-    }
-
-    //Méthode pour obtenir une chiffre aléatoire entre une valeur min et max
-    //Pris du site: https://mkyong.com/java/java-generate-random-integers-in-a-range/
-    private static int getRandomNumberInRange(int min, int max){
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
     }
 
     //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente

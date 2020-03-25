@@ -5,7 +5,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Random;
 
 
 public final class ModeleJeu {
@@ -22,6 +22,8 @@ public final class ModeleJeu {
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
     private ArrayList<Mot> tableMot;
+    private Joueur joueurActif;
+    private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
 
 
     private ModeleJeu(){
@@ -94,25 +96,91 @@ public final class ModeleJeu {
     public void createListEquipe(String[][] listeJoueurs){
         equipeList = new ArrayList<Equipe>();
         for (int i=0; i<listeJoueurs.length; i++){
-            ArrayList<String> joueursList = RemoveNull(listeJoueurs[i]);
+            ArrayList<Joueur> joueursList = RemoveNull(listeJoueurs[i]);
             if (joueursList.size() > 0)
                 equipeList.add(new Equipe(i,joueursList));
         }
     }
 
     /**
+     * Change le joueur Actif et
+     * @return Le nom du prochain joueur
+     */
+    public void NextJoueur(){
+        nextOrder();
+        Equipe nextEquipe = getNextEquipe();
+        if(!nextEquipe.equals(null)){
+            if (nextEquipe.allPlayersPlayed()){
+                nextEquipe.resetPlayersTurn();
+            }
+            do{
+                int rand = getRandomNumberInRange(0,nextEquipe.getNbJoueurs()-1);
+                System.out.println(rand);
+                joueurActif = nextEquipe.getJoueur(rand);
+            }while (joueurActif.isaJouer());
+        }
+    }
+
+    public void SetOrdre(){
+        ordre = 0;
+        //Remet a 0 l'ordre de chaque Equipe
+        for (int i=0; i<equipeList.size();i++){
+            equipeList.get(i).setNumOrdre(0);
+        }
+        int nbOrdreAffecte = 0;
+        do{
+            //Affecte un ordre aleatoire aux equipes
+            int rand = getRandomNumberInRange(0,equipeList.size()-1);
+            if (equipeList.get(rand).getNumOrdre() == 0){
+                nbOrdreAffecte++;
+                equipeList.get(rand).setNumOrdre(nbOrdreAffecte);
+            }
+        }while (nbOrdreAffecte<equipeList.size());
+    }
+
+    /**
      * Enleve les chaines vides et retourne une liste de joueur sous le format ArrayList
-     * @param listeJoueur
+     * @param listeJoueur String Array contenant les noms saisis dans la fennetre CreationEquipe
      * @return
      */
-    private ArrayList<String> RemoveNull(String[] listeJoueur){
-        ArrayList<String> joueursList = new ArrayList<String>();
+    private ArrayList<Joueur> RemoveNull(String[] listeJoueur){
+        ArrayList<Joueur> joueursList = new ArrayList<Joueur>();
         for(int i=0; i<listeJoueur.length; i++){
             //Verification que la chaine n est pas vide ou nulle
             if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
-                joueursList.add(listeJoueur[i]);
+                joueursList.add(new Joueur(listeJoueur[i]));
             }
         }
         return joueursList;
+    }
+
+    //from https://mkyong.com/java/java-generate-random-integers-in-a-range/
+    private int getRandomNumberInRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
+    private Equipe getNextEquipe(){
+        for (int i=0; i<equipeList.size();i++){
+            if (equipeList.get(i).getNumOrdre() == ordre) {
+                return equipeList.get(i);
+            }
+        }
+        return null;
+    }
+
+    private void nextOrder(){
+        if (ordre < 1 || ordre >= equipeList.size()){
+            ordre = 1;
+        }
+        else
+            ordre++;
+    }
+
+    public Joueur getJoueurActif() {
+        return joueurActif;
     }
 }
