@@ -13,6 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.boulets.R;
 
+import java.util.ArrayList;
+
+import Modele.Equipe;
+import Modele.ModeleJeu;
+
 public class PartiePerso extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
@@ -25,14 +30,9 @@ public class PartiePerso extends AppCompatActivity {
     private TextView joueurName;
     private TextView erreur;
 
-    private String compteurNbJoueurs;
-    private String compteurMots;
-    private String[][] listeJoueursDoubleArray = new String[4][4];
-    private String[] listeJoueursSingleArray = new String[16];
-    private String nbMots;
-    private String[][] banqueMots;
-
-    int compteur = 0;
+    private ModeleJeu jeu = ModeleJeu.getInstance();
+    private ArrayList<Equipe> listeEquipe;
+    private String[] listeMot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +46,12 @@ public class PartiePerso extends AppCompatActivity {
         mot5 = (EditText) findViewById(R.id.mot5);
         joueurName = (TextView) findViewById(R.id.joueur_name);
         erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
-        
-        //Récupère la liste des joueurs, nombre de joueurs et le nombre de mots par joueur dans la fenêtre précédente (ChoixMode)
-        Bundle extras = getIntent().getExtras();
-        compteurNbJoueurs = extras.getString("NB_JOUEURS");
-        nbMots = getIntent().getStringExtra("NB_MOTS_PAR_JOUEUR");
-        listeJoueursDoubleArray = (String[][]) extras.getSerializable("LISTE_JOUEURS");
-        listeJoueursSingleArray = convertListeJoueursDoubleArrayToSingleArray(listeJoueursDoubleArray);
 
-        //Adaptation fenêtre et création banque de mots
-        adapteNbMots(nbMots);
-        joueurName.setText(listeJoueursSingleArray[compteur]);
-        banqueMots = new String[Integer.valueOf(compteurNbJoueurs)][Integer.valueOf(nbMots)];
+        //Adaptation fenêtre
+        adapteNbMots(jeu.getNbMotParJoueur());
+
+        //Recuperation des equipes
+        listeEquipe = jeu.getEquipeList();
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -65,174 +59,36 @@ public class PartiePerso extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                motsProchainJoueur(compteurNbJoueurs, nbMots);
+                motsProchainJoueur();
             }
-        }); }
+        });
+
+    }
+
 
     //Enregistre les mots dans la banque de mots(associée aux joueurs), efface les données dans l'écran et affiche le prochain nom
-    private void motsProchainJoueur(String compteurNbJoueursString, String nbMotsString){
-        int nbJoueurs = Integer.valueOf(compteurNbJoueursString);
-        int nbMots = Integer.valueOf(nbMotsString);
+    private void motsProchainJoueur(){
+        //TODO envoyer mots + verif nb mots envoyes
 
-        //Si dernier joueur, passe à la prochaine fenêtre (DemarrerPartie), sinon continue
-        if (compteur==nbJoueurs-1){
-            openFenetreJeu();
-        }
-
-        //Selon Nb mots choisi, stock en mémoire les mots pour chaque individu (suivi par la variable "compteur") ET efface les mots écris entrée par l'utilisateur.
-        switch(nbMots) {
-            case 1:
-                banqueMots[compteur][0] = mot1.getText().toString();
-                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                mot1.setText(null);
-                break;
-            case 2:
-                banqueMots[compteur][0] = mot1.getText().toString();
-                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][1] = mot2.getText().toString();
-                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                mot1.setText(null);
-                mot2.setText(null);
-                break;
-            case 3:
-                banqueMots[compteur][0] = mot1.getText().toString();
-                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][1] = mot2.getText().toString();
-                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][2] = mot3.getText().toString();
-                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                mot1.setText(null);
-                mot2.setText(null);
-                mot3.setText(null);
-                break;
-            case 4:
-                banqueMots[compteur][0] = mot1.getText().toString();
-                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][1] = mot2.getText().toString();
-                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][2] = mot3.getText().toString();
-                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][3] = mot4.getText().toString();
-                Log.d("TAG_REC4", "Mot4: " + mot4.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                mot1.setText(null);
-                mot2.setText(null);
-                mot3.setText(null);
-                mot4.setText(null);
-                break;
-            case 5:
-                banqueMots[compteur][0] = mot1.getText().toString();
-                Log.d("TAG_REC1", "Mot1: " + mot1.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][1] = mot2.getText().toString();
-                Log.d("TAG_REC2", "Mot2: " + mot2.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][2] = mot3.getText().toString();
-                Log.d("TAG_REC3", "Mot3: " + mot3.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][3] = mot4.getText().toString();
-                Log.d("TAG_REC4", "Mot4: " + mot4.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                banqueMots[compteur][4] = mot5.getText().toString();
-                Log.d("TAG_REC5", "Mot5: " + mot5.getText().toString() + " de " + listeJoueursSingleArray[compteur] + " a été enregistré");
-                mot1.setText(null);
-                mot2.setText(null);
-                mot3.setText(null);
-                mot4.setText(null);
-                mot5.setText(null);
-                break;
-        }
-
+        //Vérifie qu'aucune case mot n'est laissé vide
         //Passe au prochain joueur pour écrire ses mots
-        compteur++;
-        Log.d("TAG_Compteur", "Le compteur est présentement à: " + compteur);
-        joueurName.setText(listeJoueursSingleArray[compteur]);
+
     }
 
     //Redirection vers la page de jeu
-    private void openFenetreJeu() {
-        if(verificationMotsRemplis()) {
+    private void openFenetreJeu(){
             Intent intentDemarrer = new Intent(this, DemarrerPartie.class);
-            intentDemarrer.putExtra("NB_MOTS_PAR_JOUEUR", compteurMots);
-            intentDemarrer.putExtra("NB_JOUEURS", compteurNbJoueurs);
-
-            Bundle bundleListeJoueurs = new Bundle();
-            bundleListeJoueurs.putSerializable("LISTE_JOUEURS", listeJoueursDoubleArray);
-            intentDemarrer.putExtras(bundleListeJoueurs);
-
-            Bundle bundleListeMots = new Bundle();
-            bundleListeMots.putSerializable("LISTE_MOTS", banqueMots);
-            intentDemarrer.putExtras(bundleListeMots);
             startActivity(intentDemarrer);
-        }
     }
 
-    //Vérifie qu'aucune case mot n'est laissé vide
-    private boolean verificationMotsRemplis() {
-        switch (nbMots) {
-            case "1":
-                if (mot1.getText().toString().matches("")) {
-                    erreur.setVisibility(View.VISIBLE);
-                    return false;
-                }
-                break;
-
-            case "2":
-                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("")) {
-                    erreur.setVisibility(View.VISIBLE);
-                    return false;
-                }
-                break;
-
-            case "3":
-                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
-                        mot3.getText().toString().matches("")) {
-                    erreur.setVisibility(View.VISIBLE);
-                    return false;
-                }
-                break;
-
-            case "4":
-                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
-                        mot3.getText().toString().matches("") || mot4.getText().toString().matches("")) {
-                    erreur.setVisibility(View.VISIBLE);
-                    return false;
-                }
-                break;
-
-            case "5":
-                if (mot1.getText().toString().matches("") || mot2.getText().toString().matches("") ||
-                        mot3.getText().toString().matches("") || mot4.getText().toString().matches("") ||
-                        mot5.getText().toString().matches("")) {
-                    erreur.setVisibility(View.VISIBLE);
-                    return false;
-                }
-                break;
-        }
-        return true;
-    }
-
-    private void adapteNbMots(String nbMots){
+    private void adapteNbMots(int nbMots){
         switch(nbMots){
-            case "1":
-                mot1.setVisibility(View.VISIBLE);
-                break;
-            case "2":
-                mot1.setVisibility(View.VISIBLE);
-                mot2.setVisibility(View.VISIBLE);
-                break;
-            case "3":
-                mot1.setVisibility(View.VISIBLE);
-                mot2.setVisibility(View.VISIBLE);
-                mot3.setVisibility(View.VISIBLE);
-                break;
-            case"4":
-                mot1.setVisibility(View.VISIBLE);
-                mot2.setVisibility(View.VISIBLE);
-                mot3.setVisibility(View.VISIBLE);
-                mot4.setVisibility(View.VISIBLE);
-                break;
-            case"5":
-                mot1.setVisibility(View.VISIBLE);
-                mot2.setVisibility(View.VISIBLE);
-                mot3.setVisibility(View.VISIBLE);
-                mot4.setVisibility(View.VISIBLE);
+            case 5:
                 mot5.setVisibility(View.VISIBLE);
+            case 4:
+                mot4.setVisibility(View.VISIBLE);
+            case 3:
+                mot3.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -254,23 +110,6 @@ public class PartiePerso extends AppCompatActivity {
                 break;
         }
         return false;
-    }
-
-    //Permet de convertir la liste de joueurs DoubleArray en un SingleArray (pas besoin des équipes pour l'instant)
-    public String[] convertListeJoueursDoubleArrayToSingleArray(String[][]listeJoueurs){
-        String[] listeJoueursSingleArray = new String[16];
-        int compteur = 0;
-
-        for (int i = 0; i<4;i++){       //Équipe
-            for(int j = 0; j<4; j++){   //Joueur
-                if(listeJoueurs[i][j] != null){
-                    listeJoueursSingleArray[compteur] = listeJoueurs[i][j];
-                    compteur++;
-                }
-            }
-        }
-
-        return listeJoueursSingleArray;
     }
 
     //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente

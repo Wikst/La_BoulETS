@@ -70,7 +70,7 @@ public class FenetreJeu extends AppCompatActivity {
 
                     jeu.ajoutPoint();
                     if (jeu.allMotsTrouve()){
-                        //TODO verifier la phase de jeu, si phase 3 aller vers
+                        //TODO verifier la phase de jeu, si phase 3 aller vers fin
                         openTransitionPhase();
                     }
                     else {

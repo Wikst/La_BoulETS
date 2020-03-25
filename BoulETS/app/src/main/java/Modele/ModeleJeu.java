@@ -21,6 +21,7 @@ public final class ModeleJeu {
     private ArrayList<Mot> tableMot;
     private Joueur joueurActif;
     private Mot motActif;
+    private int numPhase;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
 
 
@@ -47,13 +48,15 @@ public final class ModeleJeu {
         this.nbMotParJoueur = nbMotParJoueur;
     }
 
+    public int getNbMotParJoueur() { return nbMotParJoueur; }
+
     public Joueur getJoueurActif() {
         return joueurActif;
     }
 
-    public Mot getMotActif() {
-        return motActif;
-    }
+    public Mot getMotActif() { return motActif; }
+
+    public ArrayList<Equipe> getEquipeList() { return equipeList; }
 
     /**
      * Rempli tableMot par les mots precharges dans le jeu
@@ -65,6 +68,10 @@ public final class ModeleJeu {
             tableMot.add(new Mot(MOTSRAPIDE[i]));
             //System.out.println("Mot ajoute : "+tableMot.get(i).getMot());
         }
+    }
+
+    public void addMotPartiePerso(){
+        //TODO
     }
 
     public int getNbJoueurs(){
@@ -96,7 +103,7 @@ public final class ModeleJeu {
     }
 
     /**
-     * Cree la liste des equipes, si une equipe ne possede pas de joueur elle n<est pas creee
+     * Cree la liste des equipes, si une equipe ne possede pas de joueur elle n'est pas creee
      * @param listeJoueurs
      */
     public void createListEquipe(String[][] listeJoueurs){
@@ -173,7 +180,7 @@ public final class ModeleJeu {
     }
 
     /**
-     * Retourne un chiffre aleatoire compris entre min [inclusif] et max [exclusif}
+     * Retourne un chiffre aleatoire compris entre min [inclusif] et max [exclusif]
      * @param min
      * @param max
      * @return
@@ -211,6 +218,5 @@ public final class ModeleJeu {
         }
         return true;
     }
-
 
 }

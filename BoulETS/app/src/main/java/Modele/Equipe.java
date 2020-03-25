@@ -10,7 +10,7 @@ public class Equipe {
     public Equipe(int numEquipe, ArrayList<Joueur> tabJoueur){
         this.numEquipe = numEquipe;
         this.tabJoueur = tabJoueur;
-        this.numOrdre =0;
+        this.numOrdre = 0;
     }
 
     public int getNumEquipe() {
