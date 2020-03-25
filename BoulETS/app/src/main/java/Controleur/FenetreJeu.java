@@ -18,10 +18,13 @@ import com.example.boulets.R;
 
 import java.util.concurrent.TimeUnit;
 
+import Modele.ModeleJeu;
+
 public class FenetreJeu extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
     private TextView mot;
+    private ModeleJeu jeu = ModeleJeu.getInstance();
 
     private long timeCountInMilliSeconds = 1 * 30000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
@@ -42,6 +45,7 @@ public class FenetreJeu extends AppCompatActivity {
         setContentView(R.layout.activity_jeu);
 
         mot = (TextView) findViewById(R.id.mot);
+        getMotSuivant();
 
         // method call to initialize the views
         initViews();
@@ -64,14 +68,19 @@ public class FenetreJeu extends AppCompatActivity {
                 if (x1 < x2 && x2-x1 > 300) {
                     Log.d("SwipeBas", "Swipe vers la droite effectué");
 
-
-                    //ajoutPoint();
-
-
+                    jeu.ajoutPoint();
+                    if (jeu.allMotsTrouve()){
+                        //TODO verifier la phase de jeu, si phase 3 aller vers
+                        openTransitionPhase();
+                    }
+                    else {
+                        getMotSuivant();
+                    }
                     //finish();
                 }
                 if (y1 < y2 && y2-y1 > 250) {
                     Log.d("SwipeBas", "Swipe vers le bas effectué");
+                    getMotSuivant();
                     //finish();
                 }
 
@@ -220,6 +229,11 @@ public class FenetreJeu extends AppCompatActivity {
         startActivity(intentPointage);
     }
 
+    private void openTransitionPhase() {
+        Intent intentPointage = new Intent(this, TransitionPhase.class);
+        startActivity(intentPointage);
+    }
+
     /**
      * method to stop count down timer. Inspirée
      *du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
@@ -257,6 +271,11 @@ public class FenetreJeu extends AppCompatActivity {
                 TimeUnit.MILLISECONDS.toSeconds(milliSeconds) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milliSeconds)));
                 //TimeUnit.MILLISECONDS.toMillis(milliSeconds) - TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(milliSeconds)));
         return hms;
+    }
+
+    private void getMotSuivant(){
+        jeu.MotSuivant();
+        mot.setText(jeu.getMotActif().getMot());
     }
 
     //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente

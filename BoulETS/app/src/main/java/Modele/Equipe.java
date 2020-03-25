@@ -5,22 +5,12 @@ import java.util.ArrayList;
 public class Equipe {
     private int numEquipe;
     private ArrayList<Joueur> tabJoueur;
-    private int Score;
     private int numOrdre;
 
     public Equipe(int numEquipe, ArrayList<Joueur> tabJoueur){
         this.numEquipe = numEquipe;
         this.tabJoueur = tabJoueur;
-        this.Score = 0;
         this.numOrdre =0;
-    }
-
-    public int getScore() {
-        return Score;
-    }
-
-    public void setScore(int score) {
-        Score = score;
     }
 
     public int getNumEquipe() {
@@ -61,5 +51,13 @@ public class Equipe {
         for (int i=0; i<tabJoueur.size();i++){
             tabJoueur.get(i).setaJouer(false);
         }
+    }
+
+    public int getScore() {
+        int score=0;
+        for (int i=0; i<tabJoueur.size();i++){
+            score += tabJoueur.get(i).getScore();
+        }
+        return score;
     }
 }

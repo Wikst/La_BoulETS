@@ -1,25 +1,23 @@
 package Modele;
 
 
-import java.util.ArrayList;
-
 public class Mot {
     private String mot;
-    private Boolean trouve; //le mot a ete trouve
+    private Boolean motTrouve; //le mot a ete trouve
 
     public Mot() {}
 
     public Mot(String mot){
         this.mot = mot;
-        this.trouve = false;
+        this.motTrouve = false;
     }
 
     //---- GETTER ----
     public String getMot() { return mot; }
-    public Boolean getTrouve() { return trouve; }
+    public Boolean isMotTrouve() { return motTrouve; }
 
     //---- SETTER ----
     public void setMot(String mot) { this.mot = mot; }
-    public void setTrouve(Boolean trouve) { this.trouve = trouve; }
+    public void setMotTrouve(Boolean motTrouve) { this.motTrouve = motTrouve; }
 
 }

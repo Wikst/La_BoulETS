@@ -11,9 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.boulets.R;
 
-import java.util.Random;
-
-import Modele.Joueur;
 import Modele.ModeleJeu;
 
 public class DemarrerPartie extends AppCompatActivity {
@@ -32,7 +29,7 @@ public class DemarrerPartie extends AppCompatActivity {
         joueurCommence = (TextView) findViewById(R.id.joueur_commence);
 
         //choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
-        jeu.SetOrdre();
+        jeu.SetOrdreTour();
         jeu.NextJoueur();
         joueurCommence.setText(jeu.getJoueurActif().getNom());
 

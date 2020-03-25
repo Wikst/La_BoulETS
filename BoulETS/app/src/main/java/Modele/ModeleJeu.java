@@ -1,10 +1,7 @@
 package Modele;
 
-import android.content.Context;
-
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -16,13 +13,14 @@ public final class ModeleJeu {
     private final String[] MOTSRAPIDE = {"King Kong", "Pirate", "Table", "Guitare", "Chaise",
                                          "Soda", "Pomme", "Epee", "Kirby", "Justin Trudeau",
                                          "Livre","Paysan", "Ordinateur", "Cycliste", "Donald Trump",
-                                         "Jesus", "Cesar"
+                                         "Jesus", "Cesar", "Geralt de Riv"
                                         };
 
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
     private ArrayList<Mot> tableMot;
     private Joueur joueurActif;
+    private Mot motActif;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
 
 
@@ -47,6 +45,14 @@ public final class ModeleJeu {
 
     public void setNbMotParJoueur(int nbMotParJoueur) {
         this.nbMotParJoueur = nbMotParJoueur;
+    }
+
+    public Joueur getJoueurActif() {
+        return joueurActif;
+    }
+
+    public Mot getMotActif() {
+        return motActif;
     }
 
     /**
@@ -107,21 +113,21 @@ public final class ModeleJeu {
      * @return Le nom du prochain joueur
      */
     public void NextJoueur(){
-        nextOrder();
+        tourSuivant();
         Equipe nextEquipe = getNextEquipe();
         if(!nextEquipe.equals(null)){
             if (nextEquipe.allPlayersPlayed()){
                 nextEquipe.resetPlayersTurn();
             }
             do{
-                int rand = getRandomNumberInRange(0,nextEquipe.getNbJoueurs()-1);
+                int rand = getRandomNumberInRange(0,nextEquipe.getNbJoueurs());
                 System.out.println(rand);
                 joueurActif = nextEquipe.getJoueur(rand);
             }while (joueurActif.isaJouer());
         }
     }
 
-    public void SetOrdre(){
+    public void SetOrdreTour(){
         ordre = 0;
         //Remet a 0 l'ordre de chaque Equipe
         for (int i=0; i<equipeList.size();i++){
@@ -130,12 +136,24 @@ public final class ModeleJeu {
         int nbOrdreAffecte = 0;
         do{
             //Affecte un ordre aleatoire aux equipes
-            int rand = getRandomNumberInRange(0,equipeList.size()-1);
+            int rand = getRandomNumberInRange(0,equipeList.size());
             if (equipeList.get(rand).getNumOrdre() == 0){
                 nbOrdreAffecte++;
                 equipeList.get(rand).setNumOrdre(nbOrdreAffecte);
             }
         }while (nbOrdreAffecte<equipeList.size());
+    }
+
+    public void MotSuivant(){
+        do {
+            int rand = getRandomNumberInRange(0,tableMot.size());
+            motActif = tableMot.get(rand);
+        }while (motActif.isMotTrouve());
+    }
+
+    public void ajoutPoint(){
+        motActif.setMotTrouve(true);
+        joueurActif.ajouterScore();
     }
 
     /**
@@ -154,13 +172,18 @@ public final class ModeleJeu {
         return joueursList;
     }
 
-    //from https://mkyong.com/java/java-generate-random-integers-in-a-range/
+    /**
+     * Retourne un chiffre aleatoire compris entre min [inclusif] et max [exclusif}
+     * @param min
+     * @param max
+     * @return
+     */
     private int getRandomNumberInRange(int min, int max) {
         if (min >= max) {
             throw new IllegalArgumentException("max must be greater than min");
         }
         Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
+        return r.nextInt((max - min)) + min;
     }
 
     private Equipe getNextEquipe(){
@@ -172,7 +195,7 @@ public final class ModeleJeu {
         return null;
     }
 
-    private void nextOrder(){
+    private void tourSuivant(){
         if (ordre < 1 || ordre >= equipeList.size()){
             ordre = 1;
         }
@@ -180,7 +203,14 @@ public final class ModeleJeu {
             ordre++;
     }
 
-    public Joueur getJoueurActif() {
-        return joueurActif;
+    public boolean allMotsTrouve(){
+        for (int i=0; i<tableMot.size();i++){
+            if (!tableMot.get(i).isMotTrouve()){
+                return false;
+            }
+        }
+        return true;
     }
+
+
 }
