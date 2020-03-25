@@ -1,25 +1,34 @@
 package Modele;
 
-import com.google.android.material.tabs.TabLayout;
+import android.content.Context;
+
 
 import java.util.ArrayList;
+import java.util.List;
 
-//Patern de Singleton inspire de https://openclassrooms.com/forum/sujet/android-meilleur-pattern-singleton
+
+
 public final class ModeleJeu {
 
     private static volatile ModeleJeu instance = null;
+    private final int NBJOUEURSMIN = 2;
+    private final int NBEQUIPEMIN =2;
+    private final String[] MOTSRAPIDE = {"King Kong", "Pirate", "Table", "Guitare", "Chaise",
+                                         "Soda", "Pomme", "Epee", "Kirby", "Justin Trudeau",
+                                         "Livre","Paysan", "Ordinateur", "Cycliste", "Donald Trump",
+                                         "Jesus", "Cesar"
+                                        };
 
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
-    private final int NBJOUEURSMIN = 2;
-    private final int NBEQUIPEMIN =2;
-    private TableMot tableMot;
+    private ArrayList<Mot> tableMot;
 
 
     private ModeleJeu(){
         super();
     }
 
+    //Patern de Singleton inspire de https://openclassrooms.com/forum/sujet/android-meilleur-pattern-singleton
     public final static ModeleJeu getInstance() {
         if (ModeleJeu.instance == null) {
             // Le mot-clé synchronized sur ce bloc empêche toute instanciation
@@ -38,10 +47,16 @@ public final class ModeleJeu {
         this.nbMotParJoueur = nbMotParJoueur;
     }
 
+    /**
+     * Rempli tableMot par les mots precharges dans le jeu
+     * Pas de difference si le joueur change le nb de mot par joueur
+     */
     public void setTablePartieRapide(){
-        this.tableMot = TableMot.populateData();
-        System.out.println("Nom table : "+tableMot.getNomTable());
-        System.out.println("id : "+tableMot.getId());
+        tableMot = new ArrayList<Mot>();
+        for (int i=0; i<MOTSRAPIDE.length; i++){
+            tableMot.add(new Mot(MOTSRAPIDE[i]));
+            //System.out.println("Mot ajoute : "+tableMot.get(i).getMot());
+        }
     }
 
     public int getNbJoueurs(){
@@ -58,14 +73,14 @@ public final class ModeleJeu {
      */
     public boolean verificationMinJoueur(){
         boolean verif = false;
-        System.out.println("size : "+equipeList.size());
+        //System.out.println("size : "+equipeList.size());
         if (equipeList.size() >= NBEQUIPEMIN){
             int min = NBJOUEURSMIN;
             for (int i = 0; i< equipeList.size(); i++){
                 min = Math.min(min,equipeList.get(i).getNbJoueurs());
                 //System.out.println("nbJoueurs : "+equipeList.get(i).getNbJoueurs());
             }
-            System.out.println("min : "+min);
+            //System.out.println("min : "+min);
             if (min >= NBJOUEURSMIN)
                 verif = true;
         }
