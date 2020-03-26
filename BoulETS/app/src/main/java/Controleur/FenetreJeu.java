@@ -26,7 +26,7 @@ public class FenetreJeu extends AppCompatActivity {
     private TextView mot;
     private ModeleJeu jeu = ModeleJeu.getInstance();
 
-    private long timeCountInMilliSeconds = 1 * 3000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
+    private long timeCountInMilliSeconds = 1 * 10000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -70,9 +70,9 @@ public class FenetreJeu extends AppCompatActivity {
                     jeu.ajoutPoint();
                     if (jeu.allMotsTrouve()){
                         if (jeu.getNumPhase() < 3){
-                            openTransitionPhase();
-                        }
-                        else {
+                            startStop();
+                       }
+                       else {
                             Intent intentDemarrer = new Intent(this, FinJeu.class);
                             startActivity(intentDemarrer);
                         }
