@@ -19,7 +19,6 @@ public final class ModeleJeu {
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
     private ArrayList<Mot> tableMot;
-    private int nbMotsRestants;
     private Joueur joueurActif;
     private Mot motActif;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
@@ -55,6 +54,9 @@ public final class ModeleJeu {
     public Mot getMotActif() {
         return motActif;
     }
+
+    public ArrayList<Equipe> getEquipeList() { return equipeList; }
+
 
     /**
      * Rempli tableMot par les mots precharges dans le jeu
@@ -152,13 +154,19 @@ public final class ModeleJeu {
         }while (motActif.isMotTrouve());
     }
 
+    /**
+     * Méthode calculant le nombre de mots non devinés (mots restants) dans une phase
+     * @return nbMots   Le nombre de mots restants
+     */
     public int calculMotsRestants(){
-
-        for(int i = 0; i<=tableMot.size(); i++){
-
+            int nbMots = 0;
+            for(int i = 0; i<tableMot.size(); i++){
+                if (!tableMot.get(i).isMotTrouve()){
+                    nbMots++;
+                }
+            }
+            return nbMots;
         }
-        return 1;
-    }
 
     public void ajoutPoint(){
         motActif.setMotTrouve(true);
