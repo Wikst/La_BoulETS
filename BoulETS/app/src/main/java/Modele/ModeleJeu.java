@@ -183,6 +183,20 @@ public final class ModeleJeu {
         }while (motActif.isMotTrouve());
     }
 
+    /**
+     * Méthode calculant le nombre de mots non devinés (mots restants) dans une phase
+     * @return nbMots   Le nombre de mots restants
+     */
+    public int calculMotsRestants(){
+            int nbMots = 0;
+            for(int i = 0; i<tableMot.size(); i++){
+                if (!tableMot.get(i).isMotTrouve()){
+                    nbMots++;
+                }
+            }
+            return nbMots;
+        }
+
     public void ajoutPoint(){
         motActif.setMotTrouve(true);
         joueurActif.ajouterScore();

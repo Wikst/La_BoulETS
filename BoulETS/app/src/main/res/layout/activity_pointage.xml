@@ -103,6 +103,7 @@
         android:layout_height="247dp"
         android:layout_marginStart="33dp"
         android:layout_marginLeft="33dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/bleu_banner"
         app:layout_constraintTop_toBottomOf="@+id/titre"
         app:srcCompat="@drawable/yellow_banner" />
@@ -113,6 +114,7 @@
         android:layout_height="248dp"
         android:layout_marginStart="38dp"
         android:layout_marginLeft="38dp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/jaune_banner"
         app:layout_constraintTop_toBottomOf="@+id/titre"
         app:srcCompat="@drawable/green_banner_2" />
@@ -153,6 +155,7 @@
         android:gravity="center"
         android:text="5"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/bleu_score"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
@@ -166,6 +169,7 @@
         android:gravity="center"
         android:text="8"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/jaune_score"
         app:layout_constraintTop_toBottomOf="@+id/titre" />
 
