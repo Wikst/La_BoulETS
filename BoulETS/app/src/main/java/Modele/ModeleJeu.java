@@ -58,6 +58,10 @@ public final class ModeleJeu {
 
     public Mot getMotActif() { return motActif; }
 
+    public int getNumPhase() { return numPhase; }
+
+    public void setNumPhase(int numPhase) { this.numPhase = numPhase; }
+
     public ArrayList<Equipe> getEquipeList() { return equipeList; }
 
     /**
@@ -249,6 +253,28 @@ public final class ModeleJeu {
             }
         }
         return true;
+    }
+
+    public String getExplicationsPhases(){
+        String explications = new String();
+        switch (numPhase){
+            case 2:
+                explications = "Faites deviner le mot cible à l'aide d'un seul mot";
+                break;
+            case 3:
+                explications = "Faites deviner le mot cible en le mimant";
+        }
+        return explications;
+    }
+
+    public void incrementePhase(){
+        numPhase++;
+    }
+
+    public void resetEtatTableMot(){
+        for (int i=0; i<tableMot.size();i++){
+            tableMot.get(i).setMotTrouve(false);
+        }
     }
 
 }

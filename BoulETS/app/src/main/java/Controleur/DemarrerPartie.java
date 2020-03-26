@@ -29,6 +29,7 @@ public class DemarrerPartie extends AppCompatActivity {
         joueurCommence = (TextView) findViewById(R.id.joueur_commence);
 
         //choisirTourJoueur(listeJoueurs, compteurNbJoueurs);
+        jeu.setNumPhase(1);
         jeu.SetOrdreTour();
         jeu.NextJoueur();
         joueurCommence.setText(jeu.getJoueurActif().getNom());
