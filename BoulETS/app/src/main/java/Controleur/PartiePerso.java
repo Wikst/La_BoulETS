@@ -77,7 +77,6 @@ public class PartiePerso extends AppCompatActivity {
         if (jeu.listeMotIsValid(listeMot)){
             jeu.addMotPartiePerso(listeMot);
             if (compteur < nbJoueurs){
-                System.out.println("Joueur : "+jeu.getJoueurActif().getNom());
                 jeu.getJoueurActif().setaJouer(true);
                 joueurSuivant();
                 resetFennetre();

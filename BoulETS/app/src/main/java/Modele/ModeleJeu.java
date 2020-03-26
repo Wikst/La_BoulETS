@@ -141,8 +141,18 @@ public final class ModeleJeu {
         }
     }
 
+
     public void nextPlayerInsert(){
-        //TODO
+        boolean haschanged = false;
+        for (int i=0; i<equipeList.size() && !haschanged;i++){
+            if (!equipeList.get(i).allPlayersPlayed()){
+                for (int j=0; j<equipeList.get(i).getNbJoueurs() && !haschanged;j++){
+                    joueurActif = equipeList.get(i).getJoueur(j);
+                    if (!joueurActif.isaJouer())
+                        haschanged = true;
+                }
+            }
+        }
     }
 
     public void SetOrdreTour(){
