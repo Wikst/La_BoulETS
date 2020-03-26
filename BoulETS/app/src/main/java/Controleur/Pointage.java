@@ -4,15 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.boulets.R;
+
+import Modele.ModeleJeu;
 
 public class Pointage extends AppCompatActivity {
     //Déclaration des variables
     float x1, x2, y1, y2;
     private Button cestParti;
+    private TextView joueurSuivant;
+    private TextView nbPhase;
+    private TextView nbMotsRestants;
     private int compteur;
+    private ModeleJeu jeu = ModeleJeu.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,16 @@ public class Pointage extends AppCompatActivity {
                 openTransitionPhase();
             }
         });
+
+        nbPhase = (TextView) findViewById(R.id.titre);
+        //nbPhase.setText("Phase " + jeu.getPhaseActif() );
+
+        nbMotsRestants = (TextView) findViewById(R.id.nbMotsRestants);
+        //jeu.
+
+        joueurSuivant = (TextView) findViewById(R.id.nom_next);
+        jeu.NextJoueur();
+        joueurSuivant.setText(jeu.getJoueurActif().getNom());
     }
 
     //Redirection vers la page de jeu

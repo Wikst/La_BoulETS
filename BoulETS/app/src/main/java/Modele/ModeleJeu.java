@@ -19,6 +19,7 @@ public final class ModeleJeu {
     private ArrayList<Equipe> equipeList;
     private int nbMotParJoueur;
     private ArrayList<Mot> tableMot;
+    private int nbMotsRestants;
     private Joueur joueurActif;
     private Mot motActif;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
@@ -149,6 +150,14 @@ public final class ModeleJeu {
             int rand = getRandomNumberInRange(0,tableMot.size());
             motActif = tableMot.get(rand);
         }while (motActif.isMotTrouve());
+    }
+
+    public int calculMotsRestants(){
+
+        for(int i = 0; i<=tableMot.size(); i++){
+
+        }
+        return 1;
     }
 
     public void ajoutPoint(){

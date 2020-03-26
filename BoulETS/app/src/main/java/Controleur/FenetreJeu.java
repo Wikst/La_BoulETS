@@ -26,7 +26,7 @@ public class FenetreJeu extends AppCompatActivity {
     private TextView mot;
     private ModeleJeu jeu = ModeleJeu.getInstance();
 
-    private long timeCountInMilliSeconds = 1 * 30000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
+    private long timeCountInMilliSeconds = 1 * 3000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -215,7 +215,7 @@ public class FenetreJeu extends AppCompatActivity {
                 // changing stop icon to start icon
                          //imageViewStartStop.setImageResource(R.drawable.icon_start);
                 // making edit text editable
-                editTextMinute.setEnabled(true);
+       //         editTextMinute.setEnabled(true);
                 // changing the timer status to stopped
                 timerStatus = TimerStatus.STOPPED;
             }
