@@ -33,7 +33,6 @@ public class FenetreJeu extends AppCompatActivity {
     }
     private TimerStatus timerStatus = TimerStatus.STOPPED;
     private ProgressBar progressBarCircle;
-    private EditText editTextMinute;
     private TextView temps;
     private ImageView imageViewReset;
     //private ImageView imageViewStartStop;
@@ -157,8 +156,6 @@ public class FenetreJeu extends AppCompatActivity {
                        //imageViewReset.setVisibility(View.VISIBLE);
             // changing play icon to stop icon
                     //imageViewStartStop.setImageResource(R.drawable.icon_stop);
-            // making edit text not editable
-            editTextMinute.setEnabled(false);
             // changing the timer status to started
             timerStatus = TimerStatus.STARTED;
             // call to start the count down timer
@@ -170,7 +167,6 @@ public class FenetreJeu extends AppCompatActivity {
             // changing stop icon to start icon
                         //imageViewStartStop.setImageResource(R.drawable.icon_start);
             // making edit text editable
-            editTextMinute.setEnabled(true);
             // changing the timer status to stopped
             timerStatus = TimerStatus.STOPPED;
             stopCountDownTimer();
@@ -220,7 +216,6 @@ public class FenetreJeu extends AppCompatActivity {
                 // changing stop icon to start icon
                          //imageViewStartStop.setImageResource(R.drawable.icon_start);
                 // making edit text editable
-                editTextMinute.setEnabled(true);
                 // changing the timer status to stopped
                 timerStatus = TimerStatus.STOPPED;
             }
