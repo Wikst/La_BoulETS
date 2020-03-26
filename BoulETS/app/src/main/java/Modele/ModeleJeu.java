@@ -21,6 +21,7 @@ public final class ModeleJeu {
     private ArrayList<Mot> tableMot;
     private Joueur joueurActif;
     private Mot motActif;
+    private int numPhase;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
 
 
@@ -47,13 +48,17 @@ public final class ModeleJeu {
         this.nbMotParJoueur = nbMotParJoueur;
     }
 
+    public void setJoueurActif(Joueur joueurActif) { this.joueurActif = joueurActif; }
+
+    public int getNbMotParJoueur() { return nbMotParJoueur; }
+
     public Joueur getJoueurActif() {
         return joueurActif;
     }
 
-    public Mot getMotActif() {
-        return motActif;
-    }
+    public Mot getMotActif() { return motActif; }
+
+    public ArrayList<Equipe> getEquipeList() { return equipeList; }
 
     /**
      * Rempli tableMot par les mots precharges dans le jeu
@@ -64,6 +69,15 @@ public final class ModeleJeu {
         for (int i=0; i<MOTSRAPIDE.length; i++){
             tableMot.add(new Mot(MOTSRAPIDE[i]));
             //System.out.println("Mot ajoute : "+tableMot.get(i).getMot());
+        }
+    }
+
+    public void addMotPartiePerso(ArrayList<String> listeMot){
+        if (tableMot == null){
+            tableMot = new ArrayList<Mot>();
+        }
+        for (int i=0; i<listeMot.size();i++){
+            tableMot.add(new Mot(listeMot.get(i)));
         }
     }
 
@@ -96,7 +110,7 @@ public final class ModeleJeu {
     }
 
     /**
-     * Cree la liste des equipes, si une equipe ne possede pas de joueur elle n<est pas creee
+     * Cree la liste des equipes, si une equipe ne possede pas de joueur elle n'est pas creee
      * @param listeJoueurs
      */
     public void createListEquipe(String[][] listeJoueurs){
@@ -124,6 +138,20 @@ public final class ModeleJeu {
                 System.out.println(rand);
                 joueurActif = nextEquipe.getJoueur(rand);
             }while (joueurActif.isaJouer());
+        }
+    }
+
+
+    public void nextPlayerInsert(){
+        boolean haschanged = false;
+        for (int i=0; i<equipeList.size() && !haschanged;i++){
+            if (!equipeList.get(i).allPlayersPlayed()){
+                for (int j=0; j<equipeList.get(i).getNbJoueurs() && !haschanged;j++){
+                    joueurActif = equipeList.get(i).getJoueur(j);
+                    if (!joueurActif.isaJouer())
+                        haschanged = true;
+                }
+            }
         }
     }
 
@@ -165,15 +193,26 @@ public final class ModeleJeu {
         ArrayList<Joueur> joueursList = new ArrayList<Joueur>();
         for(int i=0; i<listeJoueur.length; i++){
             //Verification que la chaine n est pas vide ou nulle
-            if (listeJoueur[i].length() != 0 && listeJoueur[i] != null){
-                joueursList.add(new Joueur(listeJoueur[i]));
+            if (!listeJoueur[i].trim().isEmpty() && listeJoueur[i] != null){
+                joueursList.add(new Joueur(listeJoueur[i].trim()));
             }
         }
         return joueursList;
     }
 
+    public boolean listeMotIsValid(ArrayList<String> listeMot){
+        for (int i=0; i<listeMot.size();i++){
+            String temp = listeMot.get(i).trim();
+            System.out.println("Mot : "+temp);
+            if (temp.isEmpty() || temp == null){
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
-     * Retourne un chiffre aleatoire compris entre min [inclusif] et max [exclusif}
+     * Retourne un chiffre aleatoire compris entre min [inclusif] et max [exclusif]
      * @param min
      * @param max
      * @return
@@ -211,6 +250,5 @@ public final class ModeleJeu {
         }
         return true;
     }
-
 
 }

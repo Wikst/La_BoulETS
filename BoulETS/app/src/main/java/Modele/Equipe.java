@@ -10,7 +10,7 @@ public class Equipe {
     public Equipe(int numEquipe, ArrayList<Joueur> tabJoueur){
         this.numEquipe = numEquipe;
         this.tabJoueur = tabJoueur;
-        this.numOrdre =0;
+        this.numOrdre = 0;
     }
 
     public int getNumEquipe() {
@@ -35,7 +35,7 @@ public class Equipe {
 
     public boolean allPlayersPlayed(){
         boolean allPlayed = false;
-        int temp = 1;
+        int temp = 0;
         for (int i=0; i<tabJoueur.size();i++){
             if (tabJoueur.get(i).isaJouer()){
                 temp++;
