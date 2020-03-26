@@ -70,8 +70,13 @@ public class FenetreJeu extends AppCompatActivity {
 
                     jeu.ajoutPoint();
                     if (jeu.allMotsTrouve()){
-                        //TODO verifier la phase de jeu, si phase 3 aller vers fin
-                        openTransitionPhase();
+                        if (jeu.getNumPhase() < 3){
+                            openTransitionPhase();
+                        }
+                        else {
+                            Intent intentDemarrer = new Intent(this, FinJeu.class);
+                            startActivity(intentDemarrer);
+                        }
                     }
                     else {
                         getMotSuivant();
