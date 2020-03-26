@@ -23,6 +23,7 @@ public final class ModeleJeu {
     private Mot motActif;
     private int numPhase;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
+    private ArrayList<Equipe> podiumFinal;
 
 
     private ModeleJeu(){
@@ -269,6 +270,47 @@ public final class ModeleJeu {
         return true;
     }
 
+    /**
+     * Méthode qui détermine l'ordre des équipes pour le podium final
+     *
+     * Winner = podiumFinal.get(0)
+     * 2e = podiumFinal.get(1)
+     * Dernier = podiumFinal.get(podiumFinal.size() - 1)
+     *
+     * @return podiumFinal : tableau des équipes en ordre
+     */
+    public ArrayList<Equipe> calculerPodiumFinal() {
+
+        int[][] podiumTemp = new int[equipeList.size()][2];
+        podiumFinal = null;
+        podiumFinal.clear();
+
+        for (int i = 0; i < equipeList.size(); i++) {
+
+            int scoreEquipe = 0;
+
+            for (int j = 0; j < equipeList.get(i).getNbJoueurs(); j++) {
+
+                scoreEquipe += equipeList.get(i).getJoueur(j).getScore();
+            }
+
+            podiumTemp[i][0] = scoreEquipe;
+            podiumTemp[i][1] = i;
+        }
+
+        java.util.Arrays.sort(podiumTemp, new java.util.Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                return Double.compare(a[0], b[0]);
+            }
+        });
+
+        for (int k = equipeList.size() - 1; k >= 0; k--) {
+
+            podiumFinal.add(equipeList.get(podiumTemp[k][1]));
+        }
+
+        return podiumFinal;
+    }
     public String getExplicationsPhases(){
         String explications = new String();
         switch (numPhase){
