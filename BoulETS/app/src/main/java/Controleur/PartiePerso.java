@@ -30,6 +30,7 @@ public class PartiePerso extends AppCompatActivity {
 
     private ModeleJeu jeu = ModeleJeu.getInstance();
     int nbMotsParJoueurs;
+    private int nbJoueurs;
     private int compteur;
 
     @Override
@@ -45,11 +46,17 @@ public class PartiePerso extends AppCompatActivity {
         joueurName = (TextView) findViewById(R.id.joueur_name);
         erreur = (TextView) findViewById(R.id.msg_erreur_MotsPasRempli);
         compteur = 0;
+
         //Recuperation nb de mot par joueur
         nbMotsParJoueurs = jeu.getNbMotParJoueur();
+        nbJoueurs = nbJoueurs = jeu.getNbJoueurs();
 
         //Adaptation fenêtre
         adapteNbMots();
+
+        //Recuperation du nom du premier Joueur
+        joueurSuivant();
+        joueurName.setText(jeu.getJoueurActif().getNom());
 
         //Transition vers les autres vues à l'aide des boutons
         valider = (Button) findViewById(R.id.bouton_valider);
@@ -68,7 +75,16 @@ public class PartiePerso extends AppCompatActivity {
     private void motsProchainJoueur(){
         ArrayList<String> listeMot = getListeMot();
         if (jeu.listeMotIsValid(listeMot)){
-            //TODO ajout mots a tableJeu, Vider la fennetre, changer joueur
+            jeu.addMotPartiePerso(listeMot);
+            if (compteur < nbJoueurs){
+                System.out.println("Joueur : "+jeu.getJoueurActif().getNom());
+                jeu.getJoueurActif().setaJouer(true);
+                joueurSuivant();
+                resetFennetre();
+            }
+            else {
+                openFenetreJeu();
+            }
         }
         else {
             erreur.setVisibility(View.VISIBLE);
@@ -96,6 +112,20 @@ public class PartiePerso extends AppCompatActivity {
                 break;
         }
         return listeMot;
+    }
+
+    private void joueurSuivant(){
+        jeu.nextPlayerInsert();
+        compteur++;
+    }
+
+    private void resetFennetre(){
+        mot1.setText("");
+        mot2.setText("");
+        mot3.setText("");
+        mot4.setText("");
+        mot5.setText("");
+        joueurName.setText(jeu.getJoueurActif().getNom());
     }
 
     private void adapteNbMots(){

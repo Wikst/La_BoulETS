@@ -48,6 +48,8 @@ public final class ModeleJeu {
         this.nbMotParJoueur = nbMotParJoueur;
     }
 
+    public void setJoueurActif(Joueur joueurActif) { this.joueurActif = joueurActif; }
+
     public int getNbMotParJoueur() { return nbMotParJoueur; }
 
     public Joueur getJoueurActif() {
@@ -70,8 +72,13 @@ public final class ModeleJeu {
         }
     }
 
-    public void addMotPartiePerso(){
-        //TODO
+    public void addMotPartiePerso(ArrayList<String> listeMot){
+        if (tableMot == null){
+            tableMot = new ArrayList<Mot>();
+        }
+        for (int i=0; i<listeMot.size();i++){
+            tableMot.add(new Mot(listeMot.get(i)));
+        }
     }
 
     public int getNbJoueurs(){
@@ -132,6 +139,10 @@ public final class ModeleJeu {
                 joueurActif = nextEquipe.getJoueur(rand);
             }while (joueurActif.isaJouer());
         }
+    }
+
+    public void nextPlayerInsert(){
+        //TODO
     }
 
     public void SetOrdreTour(){
