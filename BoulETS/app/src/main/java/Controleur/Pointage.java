@@ -32,6 +32,7 @@ public class Pointage extends AppCompatActivity {
     private TextView scoreJaune;
     private TextView scoreVert;
     private int compteur;
+    private Equipe equipeActif;
     private ModeleJeu jeu = ModeleJeu.getInstance();
 
     @Override
@@ -60,9 +61,8 @@ public class Pointage extends AppCompatActivity {
         scoreBleu = (TextView) findViewById(R.id.bleu_score);
         scoreJaune = (TextView) findViewById(R.id.jaune_score);
         scoreVert = (TextView) findViewById(R.id.vert_score);
-
         afficheBanniere(jeu.getEquipeList());
-        System.out.println("Size de EquipeList: " +  jeu.getEquipeList().size());
+        afficheScore(jeu.getEquipeList());
 
         nbMotsRestants = (TextView) findViewById(R.id.nbMotsRestants);
         nbMotsRestants.setText(Integer.toString(jeu.calculMotsRestants()));
@@ -72,6 +72,10 @@ public class Pointage extends AppCompatActivity {
         joueurSuivant.setText(jeu.getJoueurActif().getNom());
     }
 
+    /**
+     * Cette méthode permet l'affichage des bannières selon les équipes présentes durant la partie
+     * @param equipeList    Liste des équipes
+     */
     private void afficheBanniere(ArrayList<Equipe> equipeList) {
         switch(equipeList.size()){
                 case 4:
@@ -84,6 +88,22 @@ public class Pointage extends AppCompatActivity {
                     break;
             }
         }
+
+    /**
+     * Cette méthode récupère le score de chaque équipe et modifie la valeur à l'écran
+     */
+    private void afficheScore(ArrayList<Equipe> equipeList){
+        switch(equipeList.size()){
+            case 4:
+                scoreVert.setText(Integer.toString(jeu.getEquipeList().get(3).getScore()));
+            case 3:
+                scoreJaune.setText(Integer.toString(jeu.getEquipeList().get(2).getScore()));
+            case 2:
+                scoreBleu.setText(Integer.toString(jeu.getEquipeList().get(1).getScore()));
+                scoreRouge.setText(Integer.toString(jeu.getEquipeList().get(0).getScore()));
+                break;
+        }
+    }
 
     //Redirection vers la page de jeu
     private void openTransitionPhase() {

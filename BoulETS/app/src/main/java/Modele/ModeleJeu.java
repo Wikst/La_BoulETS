@@ -21,6 +21,7 @@ public final class ModeleJeu {
     private ArrayList<Mot> tableMot;
     private Joueur joueurActif;
     private Mot motActif;
+    private Equipe score;
     private int ordre; //Ordre a pour min 1 et max le nb d'equipe en jeu
 
 
@@ -54,6 +55,8 @@ public final class ModeleJeu {
     public Mot getMotActif() {
         return motActif;
     }
+
+    public Equipe getScore(){ return score; }
 
     public ArrayList<Equipe> getEquipeList() { return equipeList; }
 
