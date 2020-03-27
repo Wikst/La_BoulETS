@@ -13,9 +13,12 @@ public final class ModeleJeu {
     private final int NBJOUEURSMIN = 2;
     private final int NBEQUIPEMIN =2;
     private final String[] MOTSRAPIDE = {"King Kong", "Pirate", "Table", "Guitare", "Chaise",
-                                         "Soda", "Pomme", "Epee", "Kirby", "Justin Trudeau",
+                                         "Soda", "Pomme", "Épee", "Kirby", "Justin Trudeau",
                                          "Livre","Paysan", "Ordinateur", "Cycliste", "Donald Trump",
-                                         "Jesus", "Cesar", "Geralt de Riv"
+                                         "Jésus", "César", "Geralt de Riv", "Trou noir", "Neige",
+                                         "Magicien", "Renard", "Peinture", "Piano", "Université",
+                                         "Coquillage", "Zeus", "Vengeance", "Chevalier", "Viking",
+                                         "Ninja", "Frisbee", "Serpent", "Thermostat", "Quarantaine"
                                         };
 
     private ArrayList<Equipe> equipeList;
