@@ -46,7 +46,11 @@ public class Pointage extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                openTransitionPhase();
+                if(jeu.calculMotsRestants()==0){
+                    openTransitionPhase();
+                } else {
+                    openFenetreJeu();
+                }
             }
         });
 
@@ -105,7 +109,7 @@ public class Pointage extends AppCompatActivity {
         }
     }
 
-    //Redirection vers la page de jeu
+    //Redirection vers la page de transition de phase
     private void openTransitionPhase() {
         //if (compteur == 0) {
             Intent intentTransitionPhase = new Intent(this, TransitionPhase.class);
@@ -116,6 +120,12 @@ public class Pointage extends AppCompatActivity {
             //startActivity(intentJeu);
             //Ou utiliser la méthode finish(). Cela demanderait de reset l'instance précédente par contre. À voir
             //}
+        }
+
+        //Redirection vers la page de jeu
+        private void openFenetreJeu(){
+            Intent intentRetourJeu = new Intent(this, FenetreJeu.class);
+            startActivity(intentRetourJeu);
         }
 
     //Empêche d'utiliser le bouton "back" de l'appareil pour revenir à la page précédente
