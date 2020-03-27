@@ -26,7 +26,7 @@ public class FenetreJeu extends AppCompatActivity {
     private TextView mot;
     private ModeleJeu jeu = ModeleJeu.getInstance();
 
-    private long timeCountInMilliSeconds = 1 * 10000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
+    private long timeCountInMilliSeconds = 3 * 10000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -34,8 +34,6 @@ public class FenetreJeu extends AppCompatActivity {
     private TimerStatus timerStatus = TimerStatus.STOPPED;
     private ProgressBar progressBarCircle;
     private TextView temps;
-    private ImageView imageViewReset;
-    //private ImageView imageViewStartStop;
     private CountDownTimer countDownTimer;
 
     @Override
@@ -69,12 +67,12 @@ public class FenetreJeu extends AppCompatActivity {
 
                     jeu.ajoutPoint();
                     if (jeu.allMotsTrouve()){
+                        startStop();
                         if (jeu.getNumPhase() < 3){
-                            startStop();
+                            openTransitionPhase();
                        }
                        else {
-                            Intent intentDemarrer = new Intent(this, FinJeu.class);
-                            startActivity(intentDemarrer);
+                            openFinJeu();
                         }
                     }
                     else {
@@ -147,26 +145,9 @@ public class FenetreJeu extends AppCompatActivity {
      */
     private void startStop() {
         if (timerStatus == TimerStatus.STOPPED) {
-            openPointage();
-            // call to initialize the timer values
-            setTimerValues();
-            // call to initialize the progress bar values
-            setProgressBarValues();
-            // showing the reset icon
-                       //imageViewReset.setVisibility(View.VISIBLE);
-            // changing play icon to stop icon
-                    //imageViewStartStop.setImageResource(R.drawable.icon_stop);
-            // changing the timer status to started
             timerStatus = TimerStatus.STARTED;
-            // call to start the count down timer
-            //startCountDownTimer();
 
         } else {
-            // hiding the reset icon
-            imageViewReset.setVisibility(View.GONE);
-            // changing stop icon to start icon
-                        //imageViewStartStop.setImageResource(R.drawable.icon_start);
-            // making edit text editable
             // changing the timer status to stopped
             timerStatus = TimerStatus.STOPPED;
             stopCountDownTimer();
@@ -207,20 +188,14 @@ public class FenetreJeu extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                openPointage();
-               temps.setText(hmsTimeFormatter(timeCountInMilliSeconds));
-                // call to initialize the progress bar values
-                setProgressBarValues();
-                // hiding the reset icon
-                          //imageViewReset.setVisibility(View.GONE);
-                // changing stop icon to start icon
-                         //imageViewStartStop.setImageResource(R.drawable.icon_start);
-                // making edit text editable
-                // changing the timer status to stopped
-                timerStatus = TimerStatus.STOPPED;
+                if (timerStatus == TimerStatus.STARTED){
+                    openPointage();
+                    timerStatus = TimerStatus.STOPPED;
+                }
             }
         }.start();
         countDownTimer.start();
+        timerStatus = TimerStatus.STARTED;
     }
 
     //Redirection vers le score de la partie une fois le timer fini
@@ -234,13 +209,17 @@ public class FenetreJeu extends AppCompatActivity {
         startActivity(intentPointage);
     }
 
+    private void openFinJeu(){
+        Intent intentDemarrer = new Intent(this, FinJeu.class);
+        startActivity(intentDemarrer);
+    }
+
     /**
      * method to stop count down timer. Inspirée
      *du site https://stackoverflow.com/questions/20010997/circular-progress-bar-for-a-countdown-timer
      */
     private void stopCountDownTimer() {
         countDownTimer.cancel();
-        openPointage();
     }
 
     /**
