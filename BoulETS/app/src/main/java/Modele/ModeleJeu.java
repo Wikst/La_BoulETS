@@ -1,6 +1,8 @@
 package Modele;
 
 
+import android.media.audiofx.DynamicsProcessing;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -282,17 +284,18 @@ public final class ModeleJeu {
     public ArrayList<Equipe> calculerPodiumFinal() {
 
         int[][] podiumTemp = new int[equipeList.size()][2];
-        podiumFinal = null;
-        podiumFinal.clear();
+        podiumFinal = new ArrayList<Equipe>();
+        //podiumFinal.clear();
 
         for (int i = 0; i < equipeList.size(); i++) {
 
-            int scoreEquipe = 0;
+            int scoreEquipe = equipeList.get(i).getScore();
+            /*int scoreEquipe = 0;
 
             for (int j = 0; j < equipeList.get(i).getNbJoueurs(); j++) {
 
                 scoreEquipe += equipeList.get(i).getJoueur(j).getScore();
-            }
+            }*/
 
             podiumTemp[i][0] = scoreEquipe;
             podiumTemp[i][1] = i;
