@@ -55,6 +55,19 @@
         app:layout_constraintStart_toEndOf="@+id/position1er"
         app:layout_constraintTop_toBottomOf="@+id/titre_score" />
 
+    <TextView
+        android:id="@+id/score_1er"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="50sp"
+        app:layout_constraintStart_toEndOf="@+id/Equipe_1er"
+        app:layout_constraintTop_toBottomOf="@+id/titre_score" />
+
     <ImageView
         android:id="@+id/crown"
         android:layout_width="108dp"
@@ -91,6 +104,18 @@
         app:layout_constraintTop_toBottomOf="@+id/Equipe_1er" />
 
     <TextView
+        android:id="@+id/score_2e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="97dp"
+        android:layout_marginLeft="97dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="40sp"
+        app:layout_constraintStart_toEndOf="@+id/Equipe_2e"
+        app:layout_constraintTop_toBottomOf="@+id/score_1er" />
+
+    <TextView
         android:id="@+id/Equipe_3e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,6 +140,18 @@
         app:layout_constraintTop_toBottomOf="@+id/position2" />
 
     <TextView
+        android:id="@+id/score_3e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginLeft="95dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/Equipe_3e"
+        app:layout_constraintTop_toBottomOf="@+id/score_2e" />
+
+    <TextView
         android:id="@+id/position4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,5 +174,17 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/position4"
         app:layout_constraintTop_toBottomOf="@+id/Equipe_3e" />
+
+    <TextView
+        android:id="@+id/score_4e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/Equipe_4e"
+        app:layout_constraintTop_toBottomOf="@+id/score_3e" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
