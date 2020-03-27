@@ -21,6 +21,7 @@ public class Pointage extends AppCompatActivity {
     float x1, x2, y1, y2;
     private Button cestParti;
     private TextView joueurSuivant;
+    private TextView next;
     private TextView nbPhase;
     private TextView nbMotsRestants;
     private ImageView banniereRouge;
@@ -55,7 +56,7 @@ public class Pointage extends AppCompatActivity {
         });
 
         nbPhase = (TextView) findViewById(R.id.titre);
-        //nbPhase.setText("Phase " + jeu.getPhaseActif() );
+        next = (TextView) findViewById(R.id.next);
 
         banniereRouge = (ImageView) findViewById(R.id.rouge_banner);
         banniereBleu = (ImageView) findViewById(R.id.bleu_banner);
@@ -70,10 +71,19 @@ public class Pointage extends AppCompatActivity {
 
         nbMotsRestants = (TextView) findViewById(R.id.nbMotsRestants);
         nbMotsRestants.setText(Integer.toString(jeu.calculMotsRestants()));
-
         joueurSuivant = (TextView) findViewById(R.id.nom_next);
-        jeu.NextJoueur();
-        joueurSuivant.setText(jeu.getJoueurActif().getNom());
+        int numPhase = jeu.getNumPhase();
+        nbPhase.setText("Phase "+numPhase);
+
+        if (jeu.calculMotsRestants() == 0){
+            next.setText("Phase Suivante");
+            numPhase++;
+            joueurSuivant.setText("Phase "+numPhase);
+        }
+        else {
+            jeu.NextJoueur();
+            joueurSuivant.setText(jeu.getJoueurActif().getNom());
+        }
     }
 
     /**

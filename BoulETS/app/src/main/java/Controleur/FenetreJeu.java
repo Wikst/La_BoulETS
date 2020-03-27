@@ -69,7 +69,8 @@ public class FenetreJeu extends AppCompatActivity {
                     if (jeu.allMotsTrouve()){
                         startStop();
                         if (jeu.getNumPhase() < 3){
-                            openTransitionPhase();
+                            openPointage();
+                            //openTransitionPhase();
                        }
                        else {
                             openFinJeu();
