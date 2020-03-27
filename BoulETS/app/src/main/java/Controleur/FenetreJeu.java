@@ -26,7 +26,7 @@ public class FenetreJeu extends AppCompatActivity {
     private TextView mot;
     private ModeleJeu jeu = ModeleJeu.getInstance();
 
-    private long timeCountInMilliSeconds = 3 * 10000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
+    private long timeCountInMilliSeconds =  10000; //VARIABLE CONTRÔLANT LA DURÉE DE LA MANCHE
     private enum TimerStatus {
         STARTED,
         STOPPED

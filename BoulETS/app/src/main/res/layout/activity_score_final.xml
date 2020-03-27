@@ -59,13 +59,13 @@
         android:id="@+id/score_1er"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="0"
         android:textSize="50sp"
-        app:layout_constraintStart_toEndOf="@+id/Equipe_1er"
+        app:layout_constraintStart_toEndOf="@+id/titre_score"
         app:layout_constraintTop_toBottomOf="@+id/titre_score" />
 
     <ImageView
@@ -107,12 +107,12 @@
         android:id="@+id/score_2e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="97dp"
-        android:layout_marginLeft="97dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
         android:gravity="center"
         android:text="0"
         android:textSize="40sp"
-        app:layout_constraintStart_toEndOf="@+id/Equipe_2e"
+        app:layout_constraintStart_toEndOf="@+id/titre_score"
         app:layout_constraintTop_toBottomOf="@+id/score_1er" />
 
     <TextView
@@ -124,6 +124,7 @@
         android:gravity="center"
         android:text="Jaune"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/position3"
         app:layout_constraintTop_toBottomOf="@+id/Equipe_2e" />
 
@@ -136,6 +137,7 @@
         android:gravity="center"
         android:text="3e"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/position2" />
 
@@ -143,12 +145,13 @@
         android:id="@+id/score_3e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginLeft="95dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
         android:gravity="center"
         android:text="0"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/Equipe_3e"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/titre_score"
         app:layout_constraintTop_toBottomOf="@+id/score_2e" />
 
     <TextView
@@ -160,6 +163,7 @@
         android:gravity="center"
         android:text="4e"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/position3" />
 
@@ -172,6 +176,7 @@
         android:gravity="center"
         android:text="Vert"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/position4"
         app:layout_constraintTop_toBottomOf="@+id/Equipe_3e" />
 
@@ -179,12 +184,13 @@
         android:id="@+id/score_4e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
         android:gravity="center"
         android:text="0"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/Equipe_4e"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/titre_score"
         app:layout_constraintTop_toBottomOf="@+id/score_3e" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
